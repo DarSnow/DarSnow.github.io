@@ -8,7 +8,7 @@
     <link href="/2025/03/19/LearnUseHexo/"/>
     <url>/2025/03/19/LearnUseHexo/</url>
     
-    <content type="html"><![CDATA[<h1 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h1><h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><ul><li>本地打包：<code>hexo g</code></li><li>本地启动：<code>hexo s</code></li><li>本地打包并推送到 Git：<code>hexo g -d</code></li><li>创建新文章：<code>hexo new post 测试文章</code></li></ul><h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要<br><img src="/LearnUseHexo/image1.png"><br>server_url添加的是这个REST API<br><img src="/LearnUseHexo/image2.png"></p><blockquote><p><a href="https://blog.csdn.net/yaorongke/article/details/119089190">GitHub Pages + Hexo搭建个人博客网站，史上最全教程</a></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h1><h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><ul><li>本地打包：<code>hexo g</code></li><li>本地启动：<code>hexo s</code></li><li>本地打包并推送到 Git(网络问题需要多次尝试)：<code>hexo g -d</code></li><li>创建新文章：<code>hexo new post 测试文章</code></li></ul><h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要<br><img src="/LearnUseHexo/image1.png"><br>server_url添加的是这个REST API<br><img src="/LearnUseHexo/image2.png"></p><blockquote><p><a href="https://blog.csdn.net/yaorongke/article/details/119089190">GitHub Pages + Hexo搭建个人博客网站，史上最全教程</a></p></blockquote>]]></content>
     
     
     <categories>
