@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://hui1520.top/2025/03/20/UE5AddPostShader/image4.png">
 <meta property="og:image" content="https://hui1520.top/2025/03/20/UE5AddPostShader/image5.png">
 <meta property="article:published_time" content="2025-03-20T11:36:56.000Z">
-<meta property="article:modified_time" content="2025-03-20T11:43:09.888Z">
+<meta property="article:modified_time" content="2025-03-20T12:16:43.860Z">
 <meta property="article:author" content="Z Hui">
 <meta property="article:tag" content="UE, UE5, UE Source">
 <meta name="twitter:card" content="summary_large_image">
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          578 字
+          594 字
         
       </span>
     
@@ -382,6 +382,10 @@
 <h2 id="在延迟渲染管线的最后调用描边渲染Pass"><a href="#在延迟渲染管线的最后调用描边渲染Pass" class="headerlink" title="在延迟渲染管线的最后调用描边渲染Pass"></a>在延迟渲染管线的最后调用描边渲染Pass</h2><p>在 <code>DeferredShadingSceneRenderer.cpp</code> 的 <code>Render()</code> 函数中添加代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">if</span> (ViewFamily.bResolveScene &amp;&amp; ViewFamilyTexture)<br>&#123;<br>    <span class="hljs-keyword">for</span> (int32 i = <span class="hljs-number">0</span>; i &lt; Views.<span class="hljs-built_in">Num</span>(); i++)<br>    &#123;<br>        <span class="hljs-type">const</span> FViewInfo&amp; View = Views[i];<br>        <span class="hljs-built_in">RenderEdgePs</span>(GraphBuilder, View, <span class="hljs-literal">nullptr</span>, ViewFamilyTexture);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <img src="/2025/03/20/UE5AddPostShader/image5.png" srcset="/img/loading.gif" lazyload class="">
+
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1au4m1A7W9/?spm_id_from=333.1391.0.0&vd_source=00d16791e62a7a30669fd64792ae22dc">7 UE5.1 修改引擎源码 新增屏幕特效</a></p>
+</blockquote>
 
                 
               </div>
