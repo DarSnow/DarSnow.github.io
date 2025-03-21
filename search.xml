@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Games202-lecture3-实时阴影和PCSS介绍</title>
+    <url>/2025/03/20/Games202-Lecture3/</url>
+    <content><![CDATA[<p>这一节闫老师讲了关于实时阴影的内容，并简要介绍了PCSS的实现原理</p>
+<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image1.png"
+                      class=""
+                >
+
+<hr>
+<h2 id="Shadow-Mapping"><a href="#Shadow-Mapping" class="headerlink" title="Shadow Mapping"></a>Shadow Mapping</h2><h3 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image2.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="Pass1-从光源渲染一个深度"><a href="#Pass1-从光源渲染一个深度" class="headerlink" title="Pass1: 从光源渲染一个深度"></a>Pass1: 从光源渲染一个深度</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image3.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="Pass2-从相机渲染，然后把渲染点投影到Shadow-Map比较深度"><a href="#Pass2-从相机渲染，然后把渲染点投影到Shadow-Map比较深度" class="headerlink" title="Pass2: 从相机渲染，然后把渲染点投影到Shadow Map比较深度"></a>Pass2: 从相机渲染，然后把渲染点投影到Shadow Map比较深度</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image4.png"
+                      class=""
+                >
+
+<hr>
+<h2 id="Shadow-Mapping的一些问题"><a href="#Shadow-Mapping的一些问题" class="headerlink" title="Shadow Mapping的一些问题"></a>Shadow Mapping的一些问题</h2><h3 id="自遮挡问题"><a href="#自遮挡问题" class="headerlink" title="自遮挡问题"></a>自遮挡问题</h3><p>相机相当于把地面离散化为垂直于相机的小块，相机越平行于地面越严重。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image5.png"
+                      class=""
+                >
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image6.png"
+                      class=""
+                >
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image7.png"
+                      class=""
+                >
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image8.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="走样的问题：锯齿"><a href="#走样的问题：锯齿" class="headerlink" title="走样的问题：锯齿"></a>走样的问题：锯齿</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image9.png"
+                      class=""
+                >
+
+<hr>
+<h2 id="Shadow-Mapping中的数学：从渲染方程解释"><a href="#Shadow-Mapping中的数学：从渲染方程解释" class="headerlink" title="Shadow Mapping中的数学：从渲染方程解释"></a>Shadow Mapping中的数学：从渲染方程解释</h2><h3 id="不等式"><a href="#不等式" class="headerlink" title="不等式"></a>不等式</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image10.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="实时渲染把不等式看作是约等式"><a href="#实时渲染把不等式看作是约等式" class="headerlink" title="实时渲染把不等式看作是约等式"></a>实时渲染把不等式看作是约等式</h3><p>一个重要的约等式（SplitSum和RSM都有用到）。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image11.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="Rendering-Equation上可以把V项给拆出来"><a href="#Rendering-Equation上可以把V项给拆出来" class="headerlink" title="Rendering Equation上可以把V项给拆出来"></a>Rendering Equation上可以把V项给拆出来</h3><p>相当于先做Shading，再乘以一个Shadow因子。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image12.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="什么情况下拆分是比较准的"><a href="#什么情况下拆分是比较准的" class="headerlink" title="什么情况下拆分是比较准的"></a>什么情况下拆分是比较准的</h3><p>基本上就是Glossy BRDF下的面光源不准。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image13.png"
+                      class=""
+                >
+
+<hr>
+<h2 id="Percentage-Closer-Soft-Shadows-PCSS"><a href="#Percentage-Closer-Soft-Shadows-PCSS" class="headerlink" title="Percentage Closer Soft Shadows (PCSS)"></a>Percentage Closer Soft Shadows (PCSS)</h2><h3 id="Percentage-Closer-Filtering-PCF"><a href="#Percentage-Closer-Filtering-PCF" class="headerlink" title="Percentage Closer Filtering (PCF)"></a>Percentage Closer Filtering (PCF)</h3><p>最开始就是做抗锯齿的。</p>
+<p><strong>做法</strong>：在Shadow Map上对应点附近7x7比较深度后再做平均值（所有结果都是0或者1的）。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image14.png"
+                      class=""
+                >
+
+<p><strong>效果</strong>：没有锯齿，还有类似软阴影的效果。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image15.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="PCSS分析"><a href="#PCSS分析" class="headerlink" title="PCSS分析"></a>PCSS分析</h3><p>发现：软阴影和硬阴影是跟笔尖和纸的距离有关。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image16.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="PCSS分析：不同遮挡物距离需要的Filter核的大小关系"><a href="#PCSS分析：不同遮挡物距离需要的Filter核的大小关系" class="headerlink" title="PCSS分析：不同遮挡物距离需要的Filter核的大小关系"></a>PCSS分析：不同遮挡物距离需要的Filter核的大小关系</h3><p>貌似我们找的depth应该是黄色的那个线，而不应该是蓝绿线。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image17.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="PCSS算法"><a href="#PCSS算法" class="headerlink" title="PCSS算法"></a>PCSS算法</h3><ol>
+<li>第一步是通过ShadowMap计算遮挡物的平均深度（遮挡物的判断需要用深度比较一下）。</li>
+<li>第二步计算Filter Size。</li>
+<li>第三步就是PCF（面光源的ShadowMap是由面光源的中心生成的）。</li>
+</ol>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image18.png"
+                      class=""
+                >
+
+<hr>
+<h3 id="PCSS算法：解释如何第一步找Blocker平均Depth大小"><a href="#PCSS算法：解释如何第一步找Blocker平均Depth大小" class="headerlink" title="PCSS算法：解释如何第一步找Blocker平均Depth大小"></a>PCSS算法：解释如何第一步找Blocker平均Depth大小</h3><p>这个是启发式的（用ShadingPoint往面光源连线，取相交于ShadowMap的区域来计算遮挡物的平均深度）；另外还可以用固定的5x5大小来找。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-Lecture3/image19.png"
+                      class=""
+                >]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Shadow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture5-软阴影和SplitSum介绍</title>
+    <url>/2025/03/20/Games202-lecture5/</url>
+    <content><![CDATA[<p>这一节闫老师主要介绍了使用SDF做软阴影效果的实现，然后再介绍了环境光的镜面反射部分的Split Sum的数学原理</p>
+<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image1.png"
+                      class=""
+                >
+
+<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image2.png"
+                      class=""
+                >
+
+<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image3.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image4.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image5.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image6.png"
+                      class=""
+                >
+
+<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image7.png"
+                      class=""
+                >
+
+<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image8.png"
+                      class=""
+                >
+
+<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image9.png"
+                      class=""
+                >
+
+<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image10.png"
+                      class=""
+                >
+
+<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image11.png"
+                      class=""
+                >
+
+<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image12.png"
+                      class=""
+                >
+
+<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image13.png"
+                      class=""
+                >
+
+<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/Games202-lecture5/image14.png"
+                      class=""
+                >
+
+<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Soft Shadow, Shadow, PBR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录Hexo与Github搭建个人博客</title>
+    <url>/2025/03/19/LearnUseHexo/</url>
+    <content><![CDATA[<p>这里主要记录搭建过程遇到的一些问题，具体步骤参考前两个引用的大神博客。两个博客都有详细的搭建步骤，我这里主要用的是第一个hexo搭建的，然后使用第二个教程重定向域名。</p>
+<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
+<li>本地打包：<code>hexo g</code></li>
+<li>本地启动：<code>hexo s</code></li>
+<li>本地打包并推送到 Git：<code>hexo g -d</code></li>
+<li>创建新文章：<code>hexo new post 测试文章</code></li>
+<li>创建自定义页：<code>hexo new page 新页</code></li>
+<li>清除缓存：<code>hexo clean</code></li>
+</ul>
+<h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><h3 id="1-统计量不显示"><a href="#1-统计量不显示" class="headerlink" title="1.统计量不显示"></a>1.统计量不显示</h3><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/19/LearnUseHexo/image1.png"
+                      class=""
+                >
+<p>server_url添加的是这个REST API</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/19/LearnUseHexo/image2.png"
+                      class=""
+                >
+<h3 id="2-图片在本地MarkDown显示但是在Hexo上不显示"><a href="#2-图片在本地MarkDown显示但是在Hexo上不显示" class="headerlink" title="2.图片在本地MarkDown显示但是在Hexo上不显示"></a>2.图片在本地MarkDown显示但是在Hexo上不显示</h3><p>需要安装hexo-renderer-marked来解决</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure></div>
+<h3 id="3-图片没有打包到Public中"><a href="#3-图片没有打包到Public中" class="headerlink" title="3. 图片没有打包到Public中"></a>3. 图片没有打包到Public中</h3><p>使用<code>hexo clean</code>清除缓存，然后再重新生成<code>hexo g</code></p>
+<h3 id="4-域名文件CNAME重新生成会被删除"><a href="#4-域名文件CNAME重新生成会被删除" class="headerlink" title="4. 域名文件CNAME重新生成会被删除"></a>4. 域名文件CNAME重新生成会被删除</h3><p>CNAME文件是用来把新域名重载到username.github.io的，因为hexo上传会重新生成public目录，CNAME文件被删除会导致访问报错：<code>404 There is not a GitHub Pages site here</code><br>解决方式是把CNAME文件放到hexo-blog&#x2F;source目录，这样重新生成public目录就会带着CNAME文件了</p>
+<h3 id="5-本地打包并推送到git失败"><a href="#5-本地打包并推送到git失败" class="headerlink" title="5. 本地打包并推送到git失败"></a>5. 本地打包并推送到git失败</h3><p>使用<code>hexo g -d</code>指令失败，提示无法连接到服务器。这个我多试几次就好了（运气不好可能十几次），</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/19/LearnUseHexo/image3.png"
+                      class=""
+                >
+<p>另一个办法应该是可以在Public空目录下拉一个git，然后再用<code>hexo g</code>重新生成，最后自己手动push到git仓库</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
+<p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网站</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UE5 渲染源码学习 - 添加描边后处理 Shader</title>
+    <url>/2025/03/20/UE5AddPostShader/</url>
+    <content><![CDATA[<p>根据分享自己动手实现了一下，熟悉 UE5 在渲染模块相关的源码。</p>
+<h2 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h2><!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纯 HTML 实现滑动对比</title>
+    <style>
+        .comparison-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            user-select: none; /* 防止选中文字 */
+        }
+        .comparison-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .comparison-top {
+            clip-path: inset(0 50% 0 0); /* 默认遮挡右侧 50% */
+            transition: clip-path 0.1s ease-out; /* 平滑过渡 */
+            z-index: 2;
+        }
+        input[type="range"] {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            appearance: none;
+            background: none;
+            pointer-events: all;
+            z-index: 3;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 10px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            cursor: ew-resize;
+            pointer-events: all;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 10px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            cursor: ew-resize;
+        }
+    </style>
+</head>
+<body>
+
+<div class="comparison-container">
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/UE5AddPostShader/image1.png"
+                       alt="Before"
+                >
+    <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/UE5AddPostShader/image2.png"
+                       alt="After" class="comparison-top"
+                >
+    <input type="range" min="0" max="100" value="50" 
+        oninput="document.querySelector('.comparison-top').style.clipPath = `inset(0 ${(100 - this.value)}% 0 0)`">
+</div>
+
+</body>
+</html>
+
+<h2 id="添加描边-Shader：EdgePsShaders-usf"><a href="#添加描边-Shader：EdgePsShaders-usf" class="headerlink" title="添加描边 Shader：EdgePsShaders.usf"></a>添加描边 Shader：<code>EdgePsShaders.usf</code></h2><div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;../Common.ush&quot;</span></span></span><br><span class="line"></span><br><span class="line">Texture2D SceneColorTexture;</span><br><span class="line">SamplerState SceneColorSampler;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainPS</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">    noperspective float4 UVAndScreenPos : TEXCOORD0,</span></span></span><br><span class="line"><span class="params"><span class="function">    float4 SvPosition : SV_POSITION,</span></span></span><br><span class="line"><span class="params"><span class="function">    out float4 OutColor : SV_Target0)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    float2 UV = UVAndScreenPos.xy;</span><br><span class="line">    float3 FinalColor = <span class="built_in">float3</span>(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>);</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> edgeSize = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x = -edgeSize; x&lt;=edgeSize; ++x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> y = -edgeSize; y &lt;= edgeSize; ++y)</span><br><span class="line">        &#123;</span><br><span class="line">            float2 SampleUV = UV + (<span class="built_in">float2</span>(x,y) * View.BufferSizeAndInvSize.zw);</span><br><span class="line">            float3 SampleColor = <span class="built_in">Texture2DSample</span>(SceneColorTexture, SceneColorSampler, SampleUV).rgb;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(x == <span class="number">0</span> &amp;&amp; y == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                FinalColor += (<span class="number">8</span> * SampleColor);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                FinalColor += (<span class="number">-1</span> * SampleColor);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    FinalColor = <span class="built_in">dot</span>(FinalColor, <span class="built_in">float3</span>(<span class="number">0.299</span>, <span class="number">0.587</span>, <span class="number">0.114</span>));</span><br><span class="line">    OutColor = <span class="built_in">float4</span>(FinalColor, <span class="number">1.0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/UE5AddPostShader/image3.png"
+                      class=""
+                >
+
+<h2 id="添加-Renderer-以及-Shader-声明"><a href="#添加-Renderer-以及-Shader-声明" class="headerlink" title="添加 Renderer 以及 Shader 声明"></a>添加 Renderer 以及 Shader 声明</h2><h3 id="DrawEdgePsRendering-h"><a href="#DrawEdgePsRendering-h" class="headerlink" title="DrawEdgePsRendering.h"></a><code>DrawEdgePsRendering.h</code></h3><div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;RenderGraphFwd.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Engine/World.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;GlobalShader.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;PipelineStateCache.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;RHIStaticStates.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;SceneUtils.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;../SceneRendering.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;SceneInterface.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ShaderParameterUtils.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RenderEdgePs</span><span class="params">(FRDGBuilder&amp; GraphBuilder, <span class="type">const</span> FViewInfo&amp; View, FRDGTextureRef InputColorTexture, FRDGTextureRef ViewTexture)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="DrawEdgePsRendering-cpp"><a href="#DrawEdgePsRendering-cpp" class="headerlink" title="DrawEdgePsRendering.cpp"></a><code>DrawEdgePsRendering.cpp</code></h3><div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;DrawEdgePsRendering.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;GlobalShader.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ShaderParameterStruct.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Engine/World.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;PipelineStateCache.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;RHIStaticStates.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;SceneUtils.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;SceneInterface.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ShaderParameterUtils.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;../SceneRendering.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;../Public/ScreenPass.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FEdgePsPS</span> : <span class="keyword">public</span> FGlobalShader</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">DECLARE_SHADER_TYPE</span>(FEdgePsPS, Global);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">SHADER_USE_PARAMETER_STRUCT</span>(FEdgePsPS, FGlobalShader);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">BEGIN_SHADER_PARAMETER_STRUCT</span>(FParameters,)</span><br><span class="line">        <span class="built_in">SHADER_PARAMETER_STRUCT_REF</span>(FViewUniformShaderParameters, View)</span><br><span class="line">        <span class="built_in">SHADER_PARAMETER_RDG_TEXTURE</span>(Texture2D, SceneColorTexture)</span><br><span class="line">        <span class="built_in">SHADER_PARAMETER_SAMPLER</span>(SamplerState, SceneColorSampler)</span><br><span class="line">        <span class="built_in">RENDER_TARGET_BINDING_SLOTS</span>()</span><br><span class="line">    <span class="built_in">END_SHADER_PARAMETER_STRUCT</span>()</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">IMPLEMENT_SHADER_TYPE</span>(, FEdgePsPS, <span class="built_in">TEXT</span>(<span class="string">&quot;/Engine/Private/DrawEdge/EdgePsShaders.usf&quot;</span>), <span class="built_in">TEXT</span>(<span class="string">&quot;MainPS&quot;</span>), SF_Pixel)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RenderEdgePs</span><span class="params">(FRDGBuilder&amp; GraphBuilder, <span class="type">const</span> FViewInfo&amp; View, FRDGTextureRef InputColorTexture, FRDGTextureRef ViewFamilyTexture)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    FRDGTextureRef CopiedViewFamilyTexture = GraphBuilder.<span class="built_in">CreateTexture</span>(ViewFamilyTexture-&gt;Desc, <span class="built_in">TEXT</span>(<span class="string">&quot;CopiedViewFamilyTexture&quot;</span>));</span><br><span class="line">    <span class="built_in">AddCopyTexturePass</span>(GraphBuilder, ViewFamilyTexture, CopiedViewFamilyTexture);</span><br><span class="line"></span><br><span class="line">    <span class="function">TShaderMapRef&lt;FEdgePsPS&gt; <span class="title">PixelShader</span><span class="params">(View.ShaderMap)</span></span>;</span><br><span class="line">    FEdgePsPS::FParameters* PassParameters = GraphBuilder.<span class="built_in">AllocParameters</span>&lt;FEdgePsPS::FParameters&gt;();</span><br><span class="line">    PassParameters-&gt;View = View.ViewUniformBuffer;</span><br><span class="line">    PassParameters-&gt;SceneColorSampler = TStaticSamplerState&lt;SF_Point, AM_Clamp, AM_Clamp, AM_Clamp&gt;::<span class="built_in">GetRHI</span>();</span><br><span class="line">    PassParameters-&gt;SceneColorTexture = CopiedViewFamilyTexture;</span><br><span class="line">    PassParameters-&gt;RenderTargets[<span class="number">0</span>] = <span class="built_in">FRenderTargetBinding</span>(ViewFamilyTexture, ERenderTargetLoadAction::ENoAction);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">AddDrawScreenPass</span>(GraphBuilder, <span class="built_in">RDG_EVENT_NAME</span>(<span class="string">&quot;Edge Pass&quot;</span>), View,</span><br><span class="line">                      <span class="built_in">FScreenPassTextureViewport</span>(ViewFamilyTexture),</span><br><span class="line">                      <span class="built_in">FScreenPassTextureViewport</span>(ViewFamilyTexture),</span><br><span class="line">                      PixelShader, PassParameters);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/UE5AddPostShader/image4.png"
+                      class=""
+                >
+
+<h2 id="在延迟渲染管线的最后调用描边渲染Pass"><a href="#在延迟渲染管线的最后调用描边渲染Pass" class="headerlink" title="在延迟渲染管线的最后调用描边渲染Pass"></a>在延迟渲染管线的最后调用描边渲染Pass</h2><p>在 <code>DeferredShadingSceneRenderer.cpp</code> 的 <code>Render()</code> 函数中添加代码：</p>
+<div class="code-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (ViewFamily.bResolveScene &amp;&amp; ViewFamilyTexture)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (int32 i = <span class="number">0</span>; i &lt; Views.<span class="built_in">Num</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">const</span> FViewInfo&amp; View = Views[i];</span><br><span class="line">        <span class="built_in">RenderEdgePs</span>(GraphBuilder, View, <span class="literal">nullptr</span>, ViewFamilyTexture);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/20/UE5AddPostShader/image5.png"
+                      class=""
+                >
+
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
+<p><a class="link"   href="https://www.bilibili.com/video/BV1au4m1A7W9/?spm_id_from=333.1391.0.0&vd_source=00d16791e62a7a30669fd64792ae22dc" >7 UE5.1 修改引擎源码 新增屏幕特效<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>UE Source</category>
+        <category>UE5 Source</category>
+      </categories>
+      <tags>
+        <tag>UE, UE5, UE Source</tag>
+      </tags>
+  </entry>
+</search>
