@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>记录Hexo与Github搭建个人博客</title>
+    <url>/2025/03/19/LearnUseHexo/</url>
+    <content><![CDATA[<p>这里主要记录搭建过程遇到的一些问题，具体步骤参考前两个引用的大神博客。两个博客都有详细的搭建步骤，我这里主要用的是第一个hexo搭建的，然后使用第二个教程重定向域名。</p>
+<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
+<li>本地打包：<code>hexo g</code></li>
+<li>本地启动：<code>hexo s</code></li>
+<li>本地打包并推送到 Git：<code>hexo g -d</code></li>
+<li>创建新文章：<code>hexo new post 测试文章</code></li>
+<li>创建自定义页：<code>hexo new page 新页</code></li>
+<li>清除缓存：<code>hexo clean</code></li>
+</ul>
+<h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><h3 id="1-统计量不显示"><a href="#1-统计量不显示" class="headerlink" title="1.统计量不显示"></a>1.统计量不显示</h3><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/19/LearnUseHexo/image1.png"
+                      class=""
+                >
+<p>server_url添加的是这个REST API</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/19/LearnUseHexo/image2.png"
+                      class=""
+                >
+<h3 id="2-图片在本地MarkDown显示但是在Hexo上不显示"><a href="#2-图片在本地MarkDown显示但是在Hexo上不显示" class="headerlink" title="2.图片在本地MarkDown显示但是在Hexo上不显示"></a>2.图片在本地MarkDown显示但是在Hexo上不显示</h3><p>需要安装hexo-renderer-marked来解决</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure></div>
+<h3 id="3-图片没有打包到Public中"><a href="#3-图片没有打包到Public中" class="headerlink" title="3. 图片没有打包到Public中"></a>3. 图片没有打包到Public中</h3><p>使用<code>hexo clean</code>清除缓存，然后再重新生成<code>hexo g</code></p>
+<h3 id="4-域名文件CNAME重新生成会被删除"><a href="#4-域名文件CNAME重新生成会被删除" class="headerlink" title="4. 域名文件CNAME重新生成会被删除"></a>4. 域名文件CNAME重新生成会被删除</h3><p>CNAME文件是用来把新域名重载到username.github.io的，因为hexo上传会重新生成public目录，CNAME文件被删除会导致访问报错：<code>404 There is not a GitHub Pages site here</code><br>解决方式是把CNAME文件放到hexo-blog&#x2F;source目录，这样重新生成public目录就会带着CNAME文件了</p>
+<h3 id="5-本地打包并推送到git失败"><a href="#5-本地打包并推送到git失败" class="headerlink" title="5. 本地打包并推送到git失败"></a>5. 本地打包并推送到git失败</h3><p>使用<code>hexo g -d</code>指令失败，提示无法连接到服务器。这个我多试几次就好了（运气不好可能十几次），</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/03/19/LearnUseHexo/image3.png"
+                      class=""
+                >
+<p>另一个办法应该是可以在Public空目录下拉一个git，然后再用<code>hexo g</code>重新生成，最后自己手动push到git仓库</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
+<p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网站</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games202-lecture3-实时阴影和PCSS介绍</title>
     <url>/2025/03/20/Games202-Lecture3/</url>
     <content><![CDATA[<p>这一节闫老师讲了关于实时阴影的内容，并简要介绍了PCSS的实现原理</p>
@@ -279,55 +328,6 @@
       </categories>
       <tags>
         <tag>Soft Shadow, Shadow, PBR</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录Hexo与Github搭建个人博客</title>
-    <url>/2025/03/19/LearnUseHexo/</url>
-    <content><![CDATA[<p>这里主要记录搭建过程遇到的一些问题，具体步骤参考前两个引用的大神博客。两个博客都有详细的搭建步骤，我这里主要用的是第一个hexo搭建的，然后使用第二个教程重定向域名。</p>
-<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
-<li>本地打包：<code>hexo g</code></li>
-<li>本地启动：<code>hexo s</code></li>
-<li>本地打包并推送到 Git：<code>hexo g -d</code></li>
-<li>创建新文章：<code>hexo new post 测试文章</code></li>
-<li>创建自定义页：<code>hexo new page 新页</code></li>
-<li>清除缓存：<code>hexo clean</code></li>
-</ul>
-<h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><h3 id="1-统计量不显示"><a href="#1-统计量不显示" class="headerlink" title="1.统计量不显示"></a>1.统计量不显示</h3><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/03/19/LearnUseHexo/image1.png"
-                      class=""
-                >
-<p>server_url添加的是这个REST API</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/03/19/LearnUseHexo/image2.png"
-                      class=""
-                >
-<h3 id="2-图片在本地MarkDown显示但是在Hexo上不显示"><a href="#2-图片在本地MarkDown显示但是在Hexo上不显示" class="headerlink" title="2.图片在本地MarkDown显示但是在Hexo上不显示"></a>2.图片在本地MarkDown显示但是在Hexo上不显示</h3><p>需要安装hexo-renderer-marked来解决</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure></div>
-<h3 id="3-图片没有打包到Public中"><a href="#3-图片没有打包到Public中" class="headerlink" title="3. 图片没有打包到Public中"></a>3. 图片没有打包到Public中</h3><p>使用<code>hexo clean</code>清除缓存，然后再重新生成<code>hexo g</code></p>
-<h3 id="4-域名文件CNAME重新生成会被删除"><a href="#4-域名文件CNAME重新生成会被删除" class="headerlink" title="4. 域名文件CNAME重新生成会被删除"></a>4. 域名文件CNAME重新生成会被删除</h3><p>CNAME文件是用来把新域名重载到username.github.io的，因为hexo上传会重新生成public目录，CNAME文件被删除会导致访问报错：<code>404 There is not a GitHub Pages site here</code><br>解决方式是把CNAME文件放到hexo-blog&#x2F;source目录，这样重新生成public目录就会带着CNAME文件了</p>
-<h3 id="5-本地打包并推送到git失败"><a href="#5-本地打包并推送到git失败" class="headerlink" title="5. 本地打包并推送到git失败"></a>5. 本地打包并推送到git失败</h3><p>使用<code>hexo g -d</code>指令失败，提示无法连接到服务器。这个我多试几次就好了（运气不好可能十几次），</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/03/19/LearnUseHexo/image3.png"
-                      class=""
-                >
-<p>另一个办法应该是可以在Public空目录下拉一个git，然后再用<code>hexo g</code>重新生成，最后自己手动push到git仓库</p>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
-<p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网站</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
