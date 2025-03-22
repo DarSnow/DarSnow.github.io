@@ -283,9 +283,8 @@
   </entry>
   <entry>
     <title>记录Hexo与Github搭建个人博客</title>
-    <url>/2025/03/19/LearnUseHexo/</url>
-    <content><![CDATA[<p>这里主要记录搭建过程遇到的一些问题，具体步骤参考前两个引用的大神博客。两个博客都有详细的搭建步骤，我这里主要用的是第一个hexo搭建的，然后使用第二个教程重定向域名。</p>
-<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
+    <url>/2025/01/11/LearnUseHexo/</url>
+    <content><![CDATA[<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
 <li>本地打包：<code>hexo g</code></li>
 <li>本地启动：<code>hexo s</code></li>
 <li>本地打包并推送到 Git：<code>hexo g -d</code></li>
@@ -297,14 +296,14 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/19/LearnUseHexo/image1.png"
+                     data-src="/2025/01/11/LearnUseHexo/image1.png"
                       class=""
                 >
 <p>server_url添加的是这个REST API</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/19/LearnUseHexo/image2.png"
+                     data-src="/2025/01/11/LearnUseHexo/image2.png"
                       class=""
                 >
 <h3 id="2-图片在本地MarkDown显示但是在Hexo上不显示"><a href="#2-图片在本地MarkDown显示但是在Hexo上不显示" class="headerlink" title="2.图片在本地MarkDown显示但是在Hexo上不显示"></a>2.图片在本地MarkDown显示但是在Hexo上不显示</h3><p>需要安装hexo-renderer-marked来解决</p>
@@ -315,10 +314,32 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/19/LearnUseHexo/image3.png"
+                     data-src="/2025/01/11/LearnUseHexo/image3.png"
                       class=""
                 >
 <p>另一个办法应该是可以在Public空目录下拉一个git，然后再用<code>hexo g</code>重新生成，最后自己手动push到git仓库</p>
+<h3 id="6-替换redefine主题之后hexo-clean-hexo-g会报错"><a href="#6-替换redefine主题之后hexo-clean-hexo-g会报错" class="headerlink" title="6. 替换redefine主题之后hexo clean|hexo g会报错"></a>6. 替换redefine主题之后hexo clean|hexo g会报错</h3><p>当使用redefine主题重新生成的时候会报错：<code>ERROR Asset render failed</code></p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">ERROR Asset render failed: css/common/markdown.css</span><br><span class="line"><span class="function">CssSyntaxError: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">themes</span>\<span class="title">redefine</span>\<span class="title">source</span>\<span class="title">css</span>\<span class="title">common</span>\<span class="title">markdown.styl</span>:131:1: <span class="title">Unknown</span> <span class="title">word</span> <span class="title">at</span> <span class="title">Input.error</span> (<span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">postcss</span>\<span class="title">lib</span>\<span class="title">input.js</span>:128:16)</span></span><br><span class="line"><span class="function">....</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">ERROR</span> <span class="title">Asset</span> <span class="title">render</span> <span class="title">failed</span>: <span class="title">css</span>/<span class="title">layout</span>/<span class="title">category</span>-<span class="title">list.css</span> <span class="title">CssSyntaxError</span>: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">themes</span>\<span class="title">redefine</span>\<span class="title">source</span>\<span class="title">css</span>\<span class="title">layout</span>\<span class="title">category</span>-<span class="title">list.styl</span>:23:1: <span class="title">Unknown</span> <span class="title">word</span> <span class="title">at</span> <span class="title">Input.error</span> (<span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">postcss</span>\<span class="title">lib</span>\<span class="title">input.js</span>:128:16)</span></span><br><span class="line"><span class="function">...</span></span><br></pre></td></tr></table></figure></div>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image4.png"
+                      class="" title="报错样例"
+                >
+<p>经过一通排查，发现是markdown.styl和category-list.styl文件中用的<code>+redefine-tablet()</code>和<code>+redefine-mobile()</code>这两个Mixin未定义导致的。Mixin相当于是函数，用’+’来调用。通过全局搜索发现函数的定义在basic.styl中，解决方法是引入basic.styl这个头文件。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image5.png"
+                      class="" title="解决方法"
+                >
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image6.png"
+                      class="" title="解决方法"
+                >
+
 <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
 <p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 </blockquote>
