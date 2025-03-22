@@ -2,12 +2,11 @@
 <search>
   <entry>
     <title>Games202-lecture3-实时阴影和PCSS介绍</title>
-    <url>/2025/03/20/Games202-Lecture3/</url>
-    <content><![CDATA[<p>这一节闫老师讲了关于实时阴影的内容，并简要介绍了PCSS的实现原理</p>
-<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+    <url>/2025/01/20/Games202-Lecture3/</url>
+    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image1.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image1.png"
                       class=""
                 >
 
@@ -15,7 +14,7 @@
 <h2 id="Shadow-Mapping"><a href="#Shadow-Mapping" class="headerlink" title="Shadow Mapping"></a>Shadow Mapping</h2><h3 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image2.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image2.png"
                       class=""
                 >
 
@@ -23,7 +22,7 @@
 <h3 id="Pass1-从光源渲染一个深度"><a href="#Pass1-从光源渲染一个深度" class="headerlink" title="Pass1: 从光源渲染一个深度"></a>Pass1: 从光源渲染一个深度</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image3.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image3.png"
                       class=""
                 >
 
@@ -31,7 +30,7 @@
 <h3 id="Pass2-从相机渲染，然后把渲染点投影到Shadow-Map比较深度"><a href="#Pass2-从相机渲染，然后把渲染点投影到Shadow-Map比较深度" class="headerlink" title="Pass2: 从相机渲染，然后把渲染点投影到Shadow Map比较深度"></a>Pass2: 从相机渲染，然后把渲染点投影到Shadow Map比较深度</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image4.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image4.png"
                       class=""
                 >
 
@@ -40,25 +39,25 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image5.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image5.png"
                       class=""
                 >
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image6.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image6.png"
                       class=""
                 >
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image7.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image7.png"
                       class=""
                 >
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image8.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image8.png"
                       class=""
                 >
 
@@ -66,7 +65,7 @@
 <h3 id="走样的问题：锯齿"><a href="#走样的问题：锯齿" class="headerlink" title="走样的问题：锯齿"></a>走样的问题：锯齿</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image9.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image9.png"
                       class=""
                 >
 
@@ -74,7 +73,7 @@
 <h2 id="Shadow-Mapping中的数学：从渲染方程解释"><a href="#Shadow-Mapping中的数学：从渲染方程解释" class="headerlink" title="Shadow Mapping中的数学：从渲染方程解释"></a>Shadow Mapping中的数学：从渲染方程解释</h2><h3 id="不等式"><a href="#不等式" class="headerlink" title="不等式"></a>不等式</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image10.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image10.png"
                       class=""
                 >
 
@@ -83,7 +82,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image11.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image11.png"
                       class=""
                 >
 
@@ -92,7 +91,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image12.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image12.png"
                       class=""
                 >
 
@@ -101,7 +100,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image13.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image13.png"
                       class=""
                 >
 
@@ -111,7 +110,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image14.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image14.png"
                       class=""
                 >
 
@@ -119,7 +118,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image15.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image15.png"
                       class=""
                 >
 
@@ -128,7 +127,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image16.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image16.png"
                       class=""
                 >
 
@@ -137,7 +136,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image17.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image17.png"
                       class=""
                 >
 
@@ -150,7 +149,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image18.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image18.png"
                       class=""
                 >
 
@@ -159,7 +158,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-Lecture3/image19.png"
+                     data-src="/2025/01/20/Games202-Lecture3/image19.png"
                       class=""
                 >]]></content>
       <categories>
@@ -172,103 +171,102 @@
   </entry>
   <entry>
     <title>Games202-lecture5-软阴影和SplitSum介绍</title>
-    <url>/2025/03/20/Games202-lecture5/</url>
-    <content><![CDATA[<p>这一节闫老师主要介绍了使用SDF做软阴影效果的实现，然后再介绍了环境光的镜面反射部分的Split Sum的数学原理</p>
-<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+    <url>/2025/01/22/Games202-lecture5/</url>
+    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image1.png"
+                     data-src="/2025/01/22/Games202-lecture5/image1.png"
                       class=""
                 >
 
 <h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image2.png"
+                     data-src="/2025/01/22/Games202-lecture5/image2.png"
                       class=""
                 >
 
 <h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image3.png"
+                     data-src="/2025/01/22/Games202-lecture5/image3.png"
                       class=""
                 >
 
 <h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image4.png"
+                     data-src="/2025/01/22/Games202-lecture5/image4.png"
                       class=""
                 >
 
 <h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image5.png"
+                     data-src="/2025/01/22/Games202-lecture5/image5.png"
                       class=""
                 >
 
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image6.png"
+                     data-src="/2025/01/22/Games202-lecture5/image6.png"
                       class=""
                 >
 
 <h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image7.png"
+                     data-src="/2025/01/22/Games202-lecture5/image7.png"
                       class=""
                 >
 
 <h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image8.png"
+                     data-src="/2025/01/22/Games202-lecture5/image8.png"
                       class=""
                 >
 
 <h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image9.png"
+                     data-src="/2025/01/22/Games202-lecture5/image9.png"
                       class=""
                 >
 
 <h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image10.png"
+                     data-src="/2025/01/22/Games202-lecture5/image10.png"
                       class=""
                 >
 
 <h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image11.png"
+                     data-src="/2025/01/22/Games202-lecture5/image11.png"
                       class=""
                 >
 
 <h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image12.png"
+                     data-src="/2025/01/22/Games202-lecture5/image12.png"
                       class=""
                 >
 
 <h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image13.png"
+                     data-src="/2025/01/22/Games202-lecture5/image13.png"
                       class=""
                 >
 
 <h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/Games202-lecture5/image14.png"
+                     data-src="/2025/01/22/Games202-lecture5/image14.png"
                       class=""
                 >
 
@@ -353,9 +351,8 @@
   </entry>
   <entry>
     <title>UE5 渲染源码学习 - 添加描边后处理 Shader</title>
-    <url>/2025/03/20/UE5AddPostShader/</url>
-    <content><![CDATA[<p>根据分享自己动手实现了一下，熟悉 UE5 在渲染模块相关的源码。</p>
-<h2 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h2><!DOCTYPE html>
+    <url>/2025/03/10/UE5AddPostShader/</url>
+    <content><![CDATA[<h2 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h2><!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -413,13 +410,13 @@
     <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/UE5AddPostShader/image1.png"
+                     data-src="/2025/03/10/UE5AddPostShader/image1.png"
                        alt="Before"
                 >
     <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/UE5AddPostShader/image2.png"
+                     data-src="/2025/03/10/UE5AddPostShader/image2.png"
                        alt="After" class="comparison-top"
                 >
     <input type="range" min="0" max="100" value="50" 
@@ -434,7 +431,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/UE5AddPostShader/image3.png"
+                     data-src="/2025/03/10/UE5AddPostShader/image3.png"
                       class=""
                 >
 
@@ -445,7 +442,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/UE5AddPostShader/image4.png"
+                     data-src="/2025/03/10/UE5AddPostShader/image4.png"
                       class=""
                 >
 
@@ -454,7 +451,7 @@
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/03/20/UE5AddPostShader/image5.png"
+                     data-src="/2025/03/10/UE5AddPostShader/image5.png"
                       class=""
                 >
 
