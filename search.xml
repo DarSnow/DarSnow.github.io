@@ -338,6 +338,9 @@
                       class="" title="解决方法"
                 >
 
+<h3 id="7-随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）"><a href="#7-随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）" class="headerlink" title="7.随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）"></a>7.随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）</h3><p>网上找了很多解决方案都不能用，发现把主题配置中把single_page改成false就可以了。</p>
+<div class="code-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Whether to enable single page experience (using swup). See https://swup.js.org/. similar to pjax</span></span><br><span class="line"><span class="attr">single_page:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></div>
+
 <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
 <p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 </blockquote>
