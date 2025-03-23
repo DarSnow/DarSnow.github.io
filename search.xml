@@ -1,6 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Games202-lecture12-实时光线追踪1</title>
+    <url>/2025/01/29/Games202-lecture12/</url>
+    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image1.png"
+                      class=""
+                >
+
+<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image2.png"
+                      class=""
+                >
+
+<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image3.png"
+                      class=""
+                >
+
+<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image4.png"
+                      class=""
+                >
+
+<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image5.png"
+                      class=""
+                >
+
+<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image6.png"
+                      class=""
+                >
+
+<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Filtering, Denoising</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture13-实时光线追踪2</title>
+    <url>/2025/01/30/Games202-lecture13/</url>
+    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image1.png"
+                      class=""
+                >
+
+<h2 id="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"><a href="#低通滤波的大致做法（高斯核考虑大概3σ范围就行了）" class="headerlink" title="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"></a>低通滤波的大致做法（高斯核考虑大概3σ范围就行了）</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image2.png"
+                      class=""
+                >
+
+<h2 id="双边滤波（Bilateral-filtering）"><a href="#双边滤波（Bilateral-filtering）" class="headerlink" title="双边滤波（Bilateral filtering）"></a>双边滤波（Bilateral filtering）</h2><h3 id="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"><a href="#高斯滤波边缘的地方会被模糊，因为边界也是高频信号" class="headerlink" title="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"></a>高斯滤波边缘的地方会被模糊，因为边界也是高频信号</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image3.png"
+                      class=""
+                >
+
+<h3 id="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"><a href="#双边滤波的思路和算法（公式相当于是多个高斯函数相乘）" class="headerlink" title="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"></a>双边滤波的思路和算法（公式相当于是多个高斯函数相乘）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image4.png"
+                      class=""
+                >
+
+<h3 id="噪点和边界无法区分，导致噪声可能也会保留"><a href="#噪点和边界无法区分，导致噪声可能也会保留" class="headerlink" title="噪点和边界无法区分，导致噪声可能也会保留"></a>噪点和边界无法区分，导致噪声可能也会保留</h3><h2 id="联合双边滤波（Joint-Bilateral-filtering）"><a href="#联合双边滤波（Joint-Bilateral-filtering）" class="headerlink" title="联合双边滤波（Joint Bilateral filtering）"></a>联合双边滤波（Joint Bilateral filtering）</h2><h3 id="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"><a href="#思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标" class="headerlink" title="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"></a>思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image5.png"
+                      class=""
+                >
+
+<h3 id="不一定是高斯，只要随距离衰减就行"><a href="#不一定是高斯，只要随距离衰减就行" class="headerlink" title="不一定是高斯，只要随距离衰减就行"></a>不一定是高斯，只要随距离衰减就行</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image6.png"
+                      class=""
+                >
+
+<h3 id="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"><a href="#可以增加更多的标准来修改不同点的权重：深度、法线、颜色" class="headerlink" title="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"></a>可以增加更多的标准来修改不同点的权重：深度、法线、颜色</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image7.png"
+                      class=""
+                >
+
+<h3 id="缺点：需要多计算，而且核的权重必须实时计算"><a href="#缺点：需要多计算，而且核的权重必须实时计算" class="headerlink" title="缺点：需要多计算，而且核的权重必须实时计算"></a>缺点：需要多计算，而且核的权重必须实时计算</h3><h2 id="大的滤波核比如128x128怎么办，计算量太大"><a href="#大的滤波核比如128x128怎么办，计算量太大" class="headerlink" title="大的滤波核比如128x128怎么办，计算量太大"></a>大的滤波核比如128x128怎么办，计算量太大</h2><h3 id="高斯核滤波可以分离水平和垂直步骤减少计算量"><a href="#高斯核滤波可以分离水平和垂直步骤减少计算量" class="headerlink" title="高斯核滤波可以分离水平和垂直步骤减少计算量"></a>高斯核滤波可以分离水平和垂直步骤减少计算量</h3><h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image8.png"
+                      class=""
+                >
+
+<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image9.png"
+                      class=""
+                >
+
+<h3 id="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完"><a href="#渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完" class="headerlink" title="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完"></a>渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完</h3><h3 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image10.png"
+                      class=""
+                >
+
+<h3 id="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"><a href="#这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。" class="headerlink" title="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"></a>这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。</h3><h4 id="不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"><a href="#不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？" class="headerlink" title="不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"></a>不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image11.png"
+                      class=""
+                >
+
+<h3 id="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"><a href="#问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立" class="headerlink" title="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"></a>问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立</h3><h2 id="滤波可以用到PCSS和SSR中等"><a href="#滤波可以用到PCSS和SSR中等" class="headerlink" title="滤波可以用到PCSS和SSR中等"></a>滤波可以用到PCSS和SSR中等</h2><h3 id="有一些很亮的点怎么解决（outlier-异常点）"><a href="#有一些很亮的点怎么解决（outlier-异常点）" class="headerlink" title="有一些很亮的点怎么解决（outlier 异常点）"></a>有一些很亮的点怎么解决（outlier 异常点）</h3><h4 id="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"><a href="#计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围" class="headerlink" title="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"></a>计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image12.png"
+                      class=""
+                >
+
+<h2 id="作业5是光线追踪，作业4是kulla-conty能量补全"><a href="#作业5是光线追踪，作业4是kulla-conty能量补全" class="headerlink" title="作业5是光线追踪，作业4是kulla conty能量补全"></a>作业5是光线追踪，作业4是kulla conty能量补全</h2>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Filtering</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games202-lecture3-实时阴影和PCSS介绍</title>
     <url>/2025/01/20/Games202-Lecture3/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -170,60 +320,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Games202-lecture12-实时光线追踪1</title>
-    <url>/2025/01/29/Games202-lecture12/</url>
-    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image1.png"
-                      class=""
-                >
-
-<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image2.png"
-                      class=""
-                >
-
-<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image3.png"
-                      class=""
-                >
-
-<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image4.png"
-                      class=""
-                >
-
-<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image5.png"
-                      class=""
-                >
-
-<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image6.png"
-                      class=""
-                >
-
-<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering, Denoising</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture14-实时光线追踪3</title>
     <url>/2025/01/31/Games202-lecture14/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -323,102 +419,6 @@
       </categories>
       <tags>
         <tag>Filtering, Denoising, Anti-Aliasing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-lecture13-实时光线追踪2</title>
-    <url>/2025/01/30/Games202-lecture13/</url>
-    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image1.png"
-                      class=""
-                >
-
-<h2 id="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"><a href="#低通滤波的大致做法（高斯核考虑大概3σ范围就行了）" class="headerlink" title="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"></a>低通滤波的大致做法（高斯核考虑大概3σ范围就行了）</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image2.png"
-                      class=""
-                >
-
-<h2 id="双边滤波（Bilateral-filtering）"><a href="#双边滤波（Bilateral-filtering）" class="headerlink" title="双边滤波（Bilateral filtering）"></a>双边滤波（Bilateral filtering）</h2><h3 id="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"><a href="#高斯滤波边缘的地方会被模糊，因为边界也是高频信号" class="headerlink" title="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"></a>高斯滤波边缘的地方会被模糊，因为边界也是高频信号</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image3.png"
-                      class=""
-                >
-
-<h3 id="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"><a href="#双边滤波的思路和算法（公式相当于是多个高斯函数相乘）" class="headerlink" title="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"></a>双边滤波的思路和算法（公式相当于是多个高斯函数相乘）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image4.png"
-                      class=""
-                >
-
-<h3 id="噪点和边界无法区分，导致噪声可能也会保留"><a href="#噪点和边界无法区分，导致噪声可能也会保留" class="headerlink" title="噪点和边界无法区分，导致噪声可能也会保留"></a>噪点和边界无法区分，导致噪声可能也会保留</h3><h2 id="联合双边滤波（Joint-Bilateral-filtering）"><a href="#联合双边滤波（Joint-Bilateral-filtering）" class="headerlink" title="联合双边滤波（Joint Bilateral filtering）"></a>联合双边滤波（Joint Bilateral filtering）</h2><h3 id="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"><a href="#思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标" class="headerlink" title="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"></a>思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image5.png"
-                      class=""
-                >
-
-<h3 id="不一定是高斯，只要随距离衰减就行"><a href="#不一定是高斯，只要随距离衰减就行" class="headerlink" title="不一定是高斯，只要随距离衰减就行"></a>不一定是高斯，只要随距离衰减就行</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image6.png"
-                      class=""
-                >
-
-<h3 id="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"><a href="#可以增加更多的标准来修改不同点的权重：深度、法线、颜色" class="headerlink" title="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"></a>可以增加更多的标准来修改不同点的权重：深度、法线、颜色</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image7.png"
-                      class=""
-                >
-
-<h3 id="缺点：需要多计算，而且核的权重必须实时计算"><a href="#缺点：需要多计算，而且核的权重必须实时计算" class="headerlink" title="缺点：需要多计算，而且核的权重必须实时计算"></a>缺点：需要多计算，而且核的权重必须实时计算</h3><h2 id="大的滤波核比如128x128怎么办，计算量太大"><a href="#大的滤波核比如128x128怎么办，计算量太大" class="headerlink" title="大的滤波核比如128x128怎么办，计算量太大"></a>大的滤波核比如128x128怎么办，计算量太大</h2><h3 id="高斯核滤波可以分离水平和垂直步骤减少计算量"><a href="#高斯核滤波可以分离水平和垂直步骤减少计算量" class="headerlink" title="高斯核滤波可以分离水平和垂直步骤减少计算量"></a>高斯核滤波可以分离水平和垂直步骤减少计算量</h3><h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image8.png"
-                      class=""
-                >
-
-<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image9.png"
-                      class=""
-                >
-
-<h3 id="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完"><a href="#渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完" class="headerlink" title="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完"></a>渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完</h3><h3 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image10.png"
-                      class=""
-                >
-
-<h3 id="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"><a href="#这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。" class="headerlink" title="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"></a>这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。</h3><h4 id="不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"><a href="#不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？" class="headerlink" title="不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"></a>不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image11.png"
-                      class=""
-                >
-
-<h3 id="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"><a href="#问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立" class="headerlink" title="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"></a>问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立</h3><h2 id="滤波可以用到PCSS和SSR中等"><a href="#滤波可以用到PCSS和SSR中等" class="headerlink" title="滤波可以用到PCSS和SSR中等"></a>滤波可以用到PCSS和SSR中等</h2><h3 id="有一些很亮的点怎么解决（outlier-异常点）"><a href="#有一些很亮的点怎么解决（outlier-异常点）" class="headerlink" title="有一些很亮的点怎么解决（outlier 异常点）"></a>有一些很亮的点怎么解决（outlier 异常点）</h3><h4 id="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"><a href="#计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围" class="headerlink" title="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"></a>计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image12.png"
-                      class=""
-                >
-
-<h2 id="作业5是光线追踪，作业4是kulla-conty能量补全"><a href="#作业5是光线追踪，作业4是kulla-conty能量补全" class="headerlink" title="作业5是光线追踪，作业4是kulla conty能量补全"></a>作业5是光线追踪，作业4是kulla conty能量补全</h2>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering</tag>
       </tags>
   </entry>
   <entry>
