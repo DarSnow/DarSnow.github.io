@@ -220,7 +220,8 @@
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>Filtering, Denoising</tag>
+        <tag>Filtering</tag>
+        <tag>Denoising</tag>
       </tags>
   </entry>
   <entry>
@@ -418,7 +419,121 @@
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>Filtering, Denoising, Anti-Aliasing</tag>
+        <tag>Filtering</tag>
+        <tag>Denoising</tag>
+        <tag>Anti-Aliasing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture5-实时的环境光照1</title>
+    <url>/2025/01/22/Games202-lecture5/</url>
+    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image1.png"
+                      class=""
+                >
+
+<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image2.png"
+                      class=""
+                >
+
+<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image3.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image4.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image5.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image6.png"
+                      class=""
+                >
+
+<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image7.png"
+                      class=""
+                >
+
+<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image8.png"
+                      class=""
+                >
+
+<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image9.png"
+                      class=""
+                >
+
+<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image10.png"
+                      class=""
+                >
+
+<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image11.png"
+                      class=""
+                >
+
+<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image12.png"
+                      class=""
+                >
+
+<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image13.png"
+                      class=""
+                >
+
+<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image14.png"
+                      class=""
+                >
+
+<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Shadow</tag>
+        <tag>Soft Shadow</tag>
+        <tag>PBR</tag>
       </tags>
   </entry>
   <entry>
@@ -588,116 +703,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Games202-lecture5-实时的环境映射1</title>
-    <url>/2025/01/22/Games202-lecture5/</url>
-    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image1.png"
-                      class=""
-                >
-
-<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image2.png"
-                      class=""
-                >
-
-<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image3.png"
-                      class=""
-                >
-
-<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image4.png"
-                      class=""
-                >
-
-<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image5.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image6.png"
-                      class=""
-                >
-
-<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image7.png"
-                      class=""
-                >
-
-<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image8.png"
-                      class=""
-                >
-
-<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image9.png"
-                      class=""
-                >
-
-<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image10.png"
-                      class=""
-                >
-
-<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image11.png"
-                      class=""
-                >
-
-<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image12.png"
-                      class=""
-                >
-
-<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image13.png"
-                      class=""
-                >
-
-<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image14.png"
-                      class=""
-                >
-
-<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Soft Shadow, Shadow, PBR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture6-实时的环境光照2</title>
     <url>/2025/01/23/Games202-lecture6/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -810,187 +815,9 @@
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>PBR，Environment Lighting, Global Illumination</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-lecture7-全局光照3</title>
-    <url>/2025/01/24/Games202-lecture7/</url>
-    <content><![CDATA[<h2 id="内容大纲"><a href="#内容大纲" class="headerlink" title="内容大纲"></a>内容大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image1.png"
-                      class=""
-                >
-
-<h2 id="上节课PRT相关"><a href="#上节课PRT相关" class="headerlink" title="上节课PRT相关"></a>上节课PRT相关</h2><h3 id="PRT主要内容是分布预计算Lighting和Light-Transport"><a href="#PRT主要内容是分布预计算Lighting和Light-Transport" class="headerlink" title="PRT主要内容是分布预计算Lighting和Light Transport"></a>PRT主要内容是分布预计算Lighting和Light Transport</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image2.png"
-                      class=""
-                >
-
-<h3 id="2维的函数可以投影到球面谐波上"><a href="#2维的函数可以投影到球面谐波上" class="headerlink" title="2维的函数可以投影到球面谐波上"></a>2维的函数可以投影到球面谐波上</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image3.png"
-                      class=""
-                >
-
-<h3 id="PRT思想-Diffuse-Case"><a href="#PRT思想-Diffuse-Case" class="headerlink" title="PRT思想-Diffuse Case"></a>PRT思想-Diffuse Case</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image4.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image5.png"
-                      class=""
-                >
-
-<h3 id="上节课推导公式"><a href="#上节课推导公式" class="headerlink" title="上节课推导公式"></a>上节课推导公式</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image6.png"
-                      class=""
-                >
-
-<h3 id="PRT-Glossy-Case，Light-Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）"><a href="#PRT-Glossy-Case，Light-Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）" class="headerlink" title="PRT-Glossy Case，Light Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）"></a>PRT-Glossy Case，Light Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image7.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image8.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image9.png"
-                      class=""
-                >
-
-<h3 id="Interraflections-And-Caustics-内部Bounds多次的PRT预计算怎么理解-就是把L和E之间的给预计算起来就行"><a href="#Interraflections-And-Caustics-内部Bounds多次的PRT预计算怎么理解-就是把L和E之间的给预计算起来就行" class="headerlink" title="Interraflections And Caustics: 内部Bounds多次的PRT预计算怎么理解(就是把L和E之间的给预计算起来就行)"></a>Interraflections And Caustics: 内部Bounds多次的PRT预计算怎么理解(就是把L和E之间的给预计算起来就行)</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image10.png"
-                      class=""
-                >
-
-<h3 id="貌似PRT结果是储存到Light-Map中（闫令琪说不是存储到Light-Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中"><a href="#貌似PRT结果是储存到Light-Map中（闫令琪说不是存储到Light-Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中" class="headerlink" title="貌似PRT结果是储存到Light Map中（闫令琪说不是存储到Light Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中"></a>貌似PRT结果是储存到Light Map中（闫令琪说不是存储到Light Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image11.png"
-                      class=""
-                >
-
-<h2 id="各种基函数"><a href="#各种基函数" class="headerlink" title="各种基函数"></a>各种基函数</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image12.png"
-                      class=""
-                >
-<h3 id="小波基函数（Wavelet）-小波基函数的系数大部分会接近零，压缩把接近0的系数都去除"><a href="#小波基函数（Wavelet）-小波基函数的系数大部分会接近零，压缩把接近0的系数都去除" class="headerlink" title="小波基函数（Wavelet）:小波基函数的系数大部分会接近零，压缩把接近0的系数都去除"></a>小波基函数（Wavelet）:小波基函数的系数大部分会接近零，压缩把接近0的系数都去除</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image13.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image14.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image15.png"
-                      class=""
-                >
-<h3 id="小波基函数可以保留高频信息，但是不支持旋转"><a href="#小波基函数可以保留高频信息，但是不支持旋转" class="headerlink" title="小波基函数可以保留高频信息，但是不支持旋转"></a>小波基函数可以保留高频信息，但是不支持旋转</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image16.png"
-                      class=""
-                >
-<h2 id="Reflection-Shadow-Maps-RSM-为了解决One-Bounce间接光照。"><a href="#Reflection-Shadow-Maps-RSM-为了解决One-Bounce间接光照。" class="headerlink" title="Reflection Shadow Maps(RSM): 为了解决One Bounce间接光照。"></a>Reflection Shadow Maps(RSM): 为了解决One Bounce间接光照。</h2><h3 id="介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题"><a href="#介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题" class="headerlink" title="介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题"></a>介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image17.png"
-                      class=""
-                >
-<h3 id="RSM解决上述两个问题，Q1刚好就可以用Shadow-Map解决"><a href="#RSM解决上述两个问题，Q1刚好就可以用Shadow-Map解决" class="headerlink" title="RSM解决上述两个问题，Q1刚好就可以用Shadow Map解决"></a>RSM解决上述两个问题，Q1刚好就可以用Shadow Map解决</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image18.png"
-                      class=""
-                >
-<h3 id="RSM理论："><a href="#RSM理论：" class="headerlink" title="RSM理论："></a>RSM理论：</h3><h4 id="光源的一些概念：Intensity-Flux-Power-per-Solid-Angle-、Irradiance-Power-per-Area-、Radiance-Power-per-Solid-Andle-per-Area"><a href="#光源的一些概念：Intensity-Flux-Power-per-Solid-Angle-、Irradiance-Power-per-Area-、Radiance-Power-per-Solid-Andle-per-Area" class="headerlink" title="光源的一些概念：Intensity(Flux&#x3D;Power per Solid Angle)、Irradiance(Power per Area)、Radiance(Power per Solid Andle per Area)"></a>光源的一些概念：Intensity(Flux&#x3D;Power per Solid Angle)、Irradiance(Power per Area)、Radiance(Power per Solid Andle per Area)</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image19.png"
-                      class=""
-                >
-<h4 id="回顾q对p的贡献可以用变量替换"><a href="#回顾q对p的贡献可以用变量替换" class="headerlink" title="回顾q对p的贡献可以用变量替换"></a>回顾q对p的贡献可以用变量替换</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image20.png"
-                      class=""
-                >
-<h4 id="替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）"><a href="#替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）" class="headerlink" title="替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）"></a>替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image21.png"
-                      class=""
-                >
-<h4 id="贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离"><a href="#贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离" class="headerlink" title="贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离"></a>贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image22.png"
-                      class=""
-                >
-<h3 id="加速：也可以用某些重要性采样来减少采样次数"><a href="#加速：也可以用某些重要性采样来减少采样次数" class="headerlink" title="加速：也可以用某些重要性采样来减少采样次数"></a>加速：也可以用某些重要性采样来减少采样次数</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image23.png"
-                      class=""
-                >
-<h3 id="应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow-map小）"><a href="#应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow-map小）" class="headerlink" title="应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow map小）"></a>应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow map小）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image24.png"
-                      class=""
-                >
-<h3 id="做法：光源做shadow-map，不过还要储存flux信息，有点类似GBuffer了"><a href="#做法：光源做shadow-map，不过还要储存flux信息，有点类似GBuffer了" class="headerlink" title="做法：光源做shadow map，不过还要储存flux信息，有点类似GBuffer了"></a>做法：光源做shadow map，不过还要储存flux信息，有点类似GBuffer了</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image25.png"
-                      class=""
-                >
-<h3 id="优缺点总结："><a href="#优缺点总结：" class="headerlink" title="优缺点总结："></a>优缺点总结：</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/24/Games202-lecture7/image26.png"
-                      class=""
-                >]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
+        <tag>PBR</tag>
         <tag>Environment Lighting</tag>
+        <tag>Global Illumination</tag>
       </tags>
   </entry>
   <entry>
@@ -1258,7 +1085,8 @@
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>Environment Lighting, Global Illumination</tag>
+        <tag>Environment Lighting</tag>
+        <tag>Global Illumination</tag>
       </tags>
   </entry>
   <entry>
@@ -1491,7 +1319,8 @@
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>Environment Lighting, Global Illumination</tag>
+        <tag>Environment Lighting</tag>
+        <tag>Global Illumination</tag>
       </tags>
   </entry>
   <entry>
@@ -1692,7 +1521,190 @@
         <category>UE5 Source</category>
       </categories>
       <tags>
-        <tag>UE, UE5, UE Source</tag>
+        <tag>UE</tag>
+        <tag>UE5</tag>
+        <tag>UE Source</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture7-全局光照3</title>
+    <url>/2025/01/24/Games202-lecture7/</url>
+    <content><![CDATA[<h2 id="内容大纲"><a href="#内容大纲" class="headerlink" title="内容大纲"></a>内容大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image1.png"
+                      class=""
+                >
+
+<h2 id="上节课PRT相关"><a href="#上节课PRT相关" class="headerlink" title="上节课PRT相关"></a>上节课PRT相关</h2><h3 id="PRT主要内容是分布预计算Lighting和Light-Transport"><a href="#PRT主要内容是分布预计算Lighting和Light-Transport" class="headerlink" title="PRT主要内容是分布预计算Lighting和Light Transport"></a>PRT主要内容是分布预计算Lighting和Light Transport</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image2.png"
+                      class=""
+                >
+
+<h3 id="2维的函数可以投影到球面谐波上"><a href="#2维的函数可以投影到球面谐波上" class="headerlink" title="2维的函数可以投影到球面谐波上"></a>2维的函数可以投影到球面谐波上</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image3.png"
+                      class=""
+                >
+
+<h3 id="PRT思想-Diffuse-Case"><a href="#PRT思想-Diffuse-Case" class="headerlink" title="PRT思想-Diffuse Case"></a>PRT思想-Diffuse Case</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image4.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image5.png"
+                      class=""
+                >
+
+<h3 id="上节课推导公式"><a href="#上节课推导公式" class="headerlink" title="上节课推导公式"></a>上节课推导公式</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image6.png"
+                      class=""
+                >
+
+<h3 id="PRT-Glossy-Case，Light-Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）"><a href="#PRT-Glossy-Case，Light-Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）" class="headerlink" title="PRT-Glossy Case，Light Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）"></a>PRT-Glossy Case，Light Transport因为BRDF会变成入射角i和出射角o的函数（用矩阵表示貌似是把i和o统一成一个了）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image7.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image8.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image9.png"
+                      class=""
+                >
+
+<h3 id="Interraflections-And-Caustics-内部Bounds多次的PRT预计算怎么理解-就是把L和E之间的给预计算起来就行"><a href="#Interraflections-And-Caustics-内部Bounds多次的PRT预计算怎么理解-就是把L和E之间的给预计算起来就行" class="headerlink" title="Interraflections And Caustics: 内部Bounds多次的PRT预计算怎么理解(就是把L和E之间的给预计算起来就行)"></a>Interraflections And Caustics: 内部Bounds多次的PRT预计算怎么理解(就是把L和E之间的给预计算起来就行)</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image10.png"
+                      class=""
+                >
+
+<h3 id="貌似PRT结果是储存到Light-Map中（闫令琪说不是存储到Light-Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中"><a href="#貌似PRT结果是储存到Light-Map中（闫令琪说不是存储到Light-Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中" class="headerlink" title="貌似PRT结果是储存到Light Map中（闫令琪说不是存储到Light Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中"></a>貌似PRT结果是储存到Light Map中（闫令琪说不是存储到Light Map）？相当于用球谐的基函数作为光照来渲染，然后储存到贴图中</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image11.png"
+                      class=""
+                >
+
+<h2 id="各种基函数"><a href="#各种基函数" class="headerlink" title="各种基函数"></a>各种基函数</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image12.png"
+                      class=""
+                >
+<h3 id="小波基函数（Wavelet）-小波基函数的系数大部分会接近零，压缩把接近0的系数都去除"><a href="#小波基函数（Wavelet）-小波基函数的系数大部分会接近零，压缩把接近0的系数都去除" class="headerlink" title="小波基函数（Wavelet）:小波基函数的系数大部分会接近零，压缩把接近0的系数都去除"></a>小波基函数（Wavelet）:小波基函数的系数大部分会接近零，压缩把接近0的系数都去除</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image13.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image14.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image15.png"
+                      class=""
+                >
+<h3 id="小波基函数可以保留高频信息，但是不支持旋转"><a href="#小波基函数可以保留高频信息，但是不支持旋转" class="headerlink" title="小波基函数可以保留高频信息，但是不支持旋转"></a>小波基函数可以保留高频信息，但是不支持旋转</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image16.png"
+                      class=""
+                >
+<h2 id="Reflection-Shadow-Maps-RSM-为了解决One-Bounce间接光照。"><a href="#Reflection-Shadow-Maps-RSM-为了解决One-Bounce间接光照。" class="headerlink" title="Reflection Shadow Maps(RSM): 为了解决One Bounce间接光照。"></a>Reflection Shadow Maps(RSM): 为了解决One Bounce间接光照。</h2><h3 id="介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题"><a href="#介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题" class="headerlink" title="介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题"></a>介绍：用直接光照亮的patch作为次级光源照亮其它着色点像素两个问题</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image17.png"
+                      class=""
+                >
+<h3 id="RSM解决上述两个问题，Q1刚好就可以用Shadow-Map解决"><a href="#RSM解决上述两个问题，Q1刚好就可以用Shadow-Map解决" class="headerlink" title="RSM解决上述两个问题，Q1刚好就可以用Shadow Map解决"></a>RSM解决上述两个问题，Q1刚好就可以用Shadow Map解决</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image18.png"
+                      class=""
+                >
+<h3 id="RSM理论："><a href="#RSM理论：" class="headerlink" title="RSM理论："></a>RSM理论：</h3><h4 id="光源的一些概念：Intensity-Flux-Power-per-Solid-Angle-、Irradiance-Power-per-Area-、Radiance-Power-per-Solid-Andle-per-Area"><a href="#光源的一些概念：Intensity-Flux-Power-per-Solid-Angle-、Irradiance-Power-per-Area-、Radiance-Power-per-Solid-Andle-per-Area" class="headerlink" title="光源的一些概念：Intensity(Flux&#x3D;Power per Solid Angle)、Irradiance(Power per Area)、Radiance(Power per Solid Andle per Area)"></a>光源的一些概念：Intensity(Flux&#x3D;Power per Solid Angle)、Irradiance(Power per Area)、Radiance(Power per Solid Andle per Area)</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image19.png"
+                      class=""
+                >
+<h4 id="回顾q对p的贡献可以用变量替换"><a href="#回顾q对p的贡献可以用变量替换" class="headerlink" title="回顾q对p的贡献可以用变量替换"></a>回顾q对p的贡献可以用变量替换</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image20.png"
+                      class=""
+                >
+<h4 id="替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）"><a href="#替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）" class="headerlink" title="替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）"></a>替换积分因子后的光源方程：分子是法线和距离的点乘（因为距离没有归一化，所以分子写的是4次方）</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image21.png"
+                      class=""
+                >
+<h4 id="贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离"><a href="#贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离" class="headerlink" title="贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离"></a>贡献的参数：可见性不考虑，考虑方向（方向在Ep计算中已经考虑了）和距离</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image22.png"
+                      class=""
+                >
+<h3 id="加速：也可以用某些重要性采样来减少采样次数"><a href="#加速：也可以用某些重要性采样来减少采样次数" class="headerlink" title="加速：也可以用某些重要性采样来减少采样次数"></a>加速：也可以用某些重要性采样来减少采样次数</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image23.png"
+                      class=""
+                >
+<h3 id="应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow-map小）"><a href="#应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow-map小）" class="headerlink" title="应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow map小）"></a>应用方向：游戏中的手电筒应用特别好，直接照亮的范围小（Shadow map小）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image24.png"
+                      class=""
+                >
+<h3 id="做法：光源做shadow-map，不过还要储存flux信息，有点类似GBuffer了"><a href="#做法：光源做shadow-map，不过还要储存flux信息，有点类似GBuffer了" class="headerlink" title="做法：光源做shadow map，不过还要储存flux信息，有点类似GBuffer了"></a>做法：光源做shadow map，不过还要储存flux信息，有点类似GBuffer了</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image25.png"
+                      class=""
+                >
+<h3 id="优缺点总结："><a href="#优缺点总结：" class="headerlink" title="优缺点总结："></a>优缺点总结：</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/24/Games202-lecture7/image26.png"
+                      class=""
+                >]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Environment Lighting</tag>
+        <tag>Global Illumination</tag>
       </tags>
   </entry>
 </search>
