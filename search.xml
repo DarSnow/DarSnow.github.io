@@ -170,6 +170,60 @@
       </tags>
   </entry>
   <entry>
+    <title>Games202-lecture12-实时光线追踪1</title>
+    <url>/2025/01/29/Games202-lecture12/</url>
+    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image1.png"
+                      class=""
+                >
+
+<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image2.png"
+                      class=""
+                >
+
+<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image3.png"
+                      class=""
+                >
+
+<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image4.png"
+                      class=""
+                >
+
+<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image5.png"
+                      class=""
+                >
+
+<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image6.png"
+                      class=""
+                >
+
+<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Filtering, Denoising</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games202-lecture13-实时光线追踪2</title>
     <url>/2025/01/30/Games202-lecture13/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -263,60 +317,6 @@
       </categories>
       <tags>
         <tag>Filtering</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-lecture12-实时光线追踪1</title>
-    <url>/2025/01/29/Games202-lecture12/</url>
-    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image1.png"
-                      class=""
-                >
-
-<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image2.png"
-                      class=""
-                >
-
-<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image3.png"
-                      class=""
-                >
-
-<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image4.png"
-                      class=""
-                >
-
-<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image5.png"
-                      class=""
-                >
-
-<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image6.png"
-                      class=""
-                >
-
-<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering, Denoising</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,6 +1252,239 @@
                      data-src="/2025/01/25/Games202-lecture8/image28.png"
                       class=""
                 >
+]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Environment Lighting, Global Illumination</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture9-全局光照（屏幕空间）</title>
+    <url>/2025/01/26/Games202-lecture9/</url>
+    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><p>这一节课主要是把”屏幕空间的方向性遮挡”和”屏幕空间反射”讲完。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image1.png"
+                      class=""
+                >
+
+<h2 id="屏幕空间的方向性遮挡（Screen-Space-Directional-Occlusion）"><a href="#屏幕空间的方向性遮挡（Screen-Space-Directional-Occlusion）" class="headerlink" title="屏幕空间的方向性遮挡（Screen Space Directional Occlusion）"></a>屏幕空间的方向性遮挡（Screen Space Directional Occlusion）</h2><h3 id="回忆一下SSAO"><a href="#回忆一下SSAO" class="headerlink" title="回忆一下SSAO"></a>回忆一下SSAO</h3><p>假设了深度深浅来代替是否被环境光遮挡</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image2.png"
+                      class=""
+                >
+
+<h3 id="引入SSDO"><a href="#引入SSDO" class="headerlink" title="引入SSDO"></a>引入SSDO</h3><p>SSDO是SSAO的加强版，类似RSM，被点亮的地方会作为次级光源照亮其它区域</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image3.png"
+                      class=""
+                >
+
+<p>SSDO的间接光来自于相机（屏幕），RSM是来自于Shadow Map</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image4.png"
+                      class=""
+                >
+
+<h3 id="SSDO的做法"><a href="#SSDO的做法" class="headerlink" title="SSDO的做法"></a>SSDO的做法</h3><p>类似于Path Tracing，在着色点随机发射一条射线，打到遮挡物就是反射过来间接光，没有打到遮挡物就是用直接光照亮。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image5.png"
+                      class=""
+                >
+
+<p>对比SSAO和SSDO，SSAO假设环境光来自无限远，SSDO假设间接光来自近处（判断遮挡会设置一个距离的阈值）。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image6.png"
+                      class=""
+                >
+
+<p>SSDO的数学原理，把光照分为两种情况进行计算：对非遮挡（V&#x3D;1）情况计算直接光照，对遮挡物体（V&#x3D;0）计算间接光照</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image7.png"
+                      class=""
+                >
+
+<p>在Shading Point考虑法线方向的半球，与SSAO一样用从相机的深度来判断哪些点被遮挡（ABD点）和哪一些点可见（C点），然后用不可见点（对应在屏幕上的点，即屏幕表面的点）计算间接光照，用可见点（也是对应屏幕上的点）计算直接光照，然后把光照累加起来就行了。</p>
+<p>当然，也会出现与SSAO相同的问题，即从相机的深度判断容易出现误判（第三张图的A点本来应该被P点可见，B点不应该被P可见），最正确当然是从点P渲染一张ShadowMap来判断，但是这样带来的开销太大了。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image8.png"
+                      class=""
+                >
+
+<h3 id="SSDO的问题"><a href="#SSDO的问题" class="headerlink" title="SSDO的问题"></a>SSDO的问题</h3><p>GI只存在于短距离，可见性的考虑不准，只能解决在屏幕范围内的GI</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image9.png"
+                      class=""
+                >
+
+<h2 id="屏幕空间的反射（Screen-Space-Reflection）"><a href="#屏幕空间的反射（Screen-Space-Reflection）" class="headerlink" title="屏幕空间的反射（Screen Space Reflection）"></a>屏幕空间的反射（Screen Space Reflection）</h2><p>SSR是解决GI的一种方式（主要是解决间接光镜面反射的问题），可以理解为屏幕空间的光线追踪，但是不是与几何物体求交</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image10.png"
+                      class=""
+                >
+
+<p>观察到现实中镜面反射大部分内容来自于已经在屏幕中存在的内容，这样只需要考虑对屏幕空间的内容来做反射，这样相对于光线追踪可以节省计算量</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image11.png"
+                      class=""
+                >
+
+<p>SSR也可以做Glossy的反射，但是这样可能反射的光线需要多根，计算量变大了。所以一般SSR只用来做镜面反射，这样高端的移动设备也能开启SSR。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image12.png"
+                      class=""
+                >
+
+<h3 id="SSR的做法"><a href="#SSR的做法" class="headerlink" title="SSR的做法"></a>SSR的做法</h3><p>大致的思路，从ShadingPoint发出一根光线，沿着光线方向与屏幕像素求交，最后用交点的颜色作为反射的颜色</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image13.png"
+                      class=""
+                >
+
+<p>需要延迟渲染的内容，法线、深度以及直接着色后的颜色Buffer</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image14.png"
+                      class=""
+                >
+
+<p>光线步进的做法，有一个着色点和一个反射方向，沿着反射方向每次增加一定距离，直到这个点超过了深度图上的值（用深度图作为可见性判断，如果没有在屏幕上的信息可能会计算错），用对应深度图的交点作为实际反射的交点。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image15.png"
+                      class=""
+                >
+
+<h3 id="加速RayMarch"><a href="#加速RayMarch" class="headerlink" title="加速RayMarch"></a>加速RayMarch</h3><p>步长太长可能不准，太短又可能要进行很多次，所以要用动态决定步长来加快RayMarch的速度。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image16.png"
+                      class=""
+                >
+
+<p>预计算，把Depth做Mipmap，用最小的深度作为下一层的深度值。这个相当于是Hierarchy Z的图（HIZ需要的数据）</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image17.png"
+                      class=""
+                >
+
+<p>原理：如果光线与高层（粗粒度）的值不相交，则一定不会与更细粒度的值相交。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image18.png"
+                      class=""
+                >
+
+<p>伪代码，如果没有交点就增加层级，如果有交点后就减少层级求交</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image19.png"
+                      class=""
+                >
+
+<p>示例：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image20.gif"
+                      class=""
+                >
+
+<p>有一个问题：当起点不是2幂次时，mipmap不能查询，所以要么先步进到2的幂次，要么用层间的混合值</p>
+<h3 id="SSR的着色"><a href="#SSR的着色" class="headerlink" title="SSR的着色"></a>SSR的着色</h3><p>用反射到的ShadingPoint颜色作为可以出射的Radiance，然后积分起来（镜面反射一般只考虑反射方向）</p>
+<p>思考：</p>
+<p>问题1：没有距离衰减，因为不是从光源反着采样积分</p>
+<p>问题2：次级光源的可见性是考虑了的，因为是Tacing出来的，肯定不会有遮挡</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image21.png"
+                      class=""
+                >
+
+<h3 id="SSR的现象"><a href="#SSR的现象" class="headerlink" title="SSR的现象"></a>SSR的现象</h3><p>我这里认为以下现象一般都不会在游戏里面看到，因为游戏里面一般SSR都是用来做镜面反射的，一般来说都只Trace一根光线，而且应该都是反射方向（非BRDF重要性采样，当然如果TAA下应该用采样更接近正确效果）</p>
+<p>现象1：如果准确考虑BRDF，那么specular反射是锐利的，diffude反射是模糊的</p>
+<p>现象2：如果准确考虑BRDF，越近越清楚，越远越模糊</p>
+<p>现象3：如果准确考虑了BRDF，法线分布是椭圆，那么会出现雨天车灯长条的效果（各向同性）</p>
+<p>现象4：每个像素的粗糙度和法线不一样，粒度是像素</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image22.png"
+                      class=""
+                >
+
+<h3 id="SSR的提高"><a href="#SSR的提高" class="headerlink" title="SSR的提高"></a>SSR的提高</h3><p>可以用BRDF（NDF）来做重要性采样</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image23.png"
+                      class=""
+                >
+
+<p>复用交点，可以增加Sample数量：比如说每个ShadingPoint出射一个光线，但是ShadingPoint可以用隔壁ShadingPoint的交点的信息加进来，权重用BRDF快速算出来。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image24.png"
+                      class=""
+                >
+
+<p>可以Filter 直接光Shading的Color值(但是深度怎么Filter)，然后用一次采样来代替多次采样</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image25.png"
+                      class=""
+                >
+
+<h3 id="SSR总结"><a href="#SSR总结" class="headerlink" title="SSR总结"></a>SSR总结</h3><p>好处：性能好，效果好，遮挡效果准确</p>
+<p>坏处：diffuse的情况效率低，缺少不在屏幕的信息</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/26/Games202-lecture9/image26.png"
+                      class=""
+                >
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p><a class="link"   href="https://www.bilibili.com/video/BV1YK4y1T7yY?spm_id_from=333.788.videopod.episodes&vd_source=00d16791e62a7a30669fd64792ae22dc&p=9" >Games202-Lecture9-实时全局光照(屏幕空间)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Computer Graphics</category>
