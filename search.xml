@@ -225,6 +225,102 @@
       </tags>
   </entry>
   <entry>
+    <title>Games202-lecture13-实时光线追踪2</title>
+    <url>/2025/01/30/Games202-lecture13/</url>
+    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image1.png"
+                      class=""
+                >
+
+<h2 id="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"><a href="#低通滤波的大致做法（高斯核考虑大概3σ范围就行了）" class="headerlink" title="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"></a>低通滤波的大致做法（高斯核考虑大概3σ范围就行了）</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image2.png"
+                      class=""
+                >
+
+<h2 id="双边滤波（Bilateral-filtering）"><a href="#双边滤波（Bilateral-filtering）" class="headerlink" title="双边滤波（Bilateral filtering）"></a>双边滤波（Bilateral filtering）</h2><h3 id="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"><a href="#高斯滤波边缘的地方会被模糊，因为边界也是高频信号" class="headerlink" title="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"></a>高斯滤波边缘的地方会被模糊，因为边界也是高频信号</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image3.png"
+                      class=""
+                >
+
+<h3 id="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"><a href="#双边滤波的思路和算法（公式相当于是多个高斯函数相乘）" class="headerlink" title="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"></a>双边滤波的思路和算法（公式相当于是多个高斯函数相乘）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image4.png"
+                      class=""
+                >
+
+<h3 id="噪点和边界无法区分，导致噪声可能也会保留"><a href="#噪点和边界无法区分，导致噪声可能也会保留" class="headerlink" title="噪点和边界无法区分，导致噪声可能也会保留"></a>噪点和边界无法区分，导致噪声可能也会保留</h3><h2 id="联合双边滤波（Joint-Bilateral-filtering）"><a href="#联合双边滤波（Joint-Bilateral-filtering）" class="headerlink" title="联合双边滤波（Joint Bilateral filtering）"></a>联合双边滤波（Joint Bilateral filtering）</h2><h3 id="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"><a href="#思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标" class="headerlink" title="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"></a>思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image5.png"
+                      class=""
+                >
+
+<h3 id="不一定是高斯，只要随距离衰减就行"><a href="#不一定是高斯，只要随距离衰减就行" class="headerlink" title="不一定是高斯，只要随距离衰减就行"></a>不一定是高斯，只要随距离衰减就行</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image6.png"
+                      class=""
+                >
+
+<h3 id="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"><a href="#可以增加更多的标准来修改不同点的权重：深度、法线、颜色" class="headerlink" title="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"></a>可以增加更多的标准来修改不同点的权重：深度、法线、颜色</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image7.png"
+                      class=""
+                >
+
+<h3 id="缺点：需要多计算，而且核的权重必须实时计算"><a href="#缺点：需要多计算，而且核的权重必须实时计算" class="headerlink" title="缺点：需要多计算，而且核的权重必须实时计算"></a>缺点：需要多计算，而且核的权重必须实时计算</h3><h2 id="大的滤波核比如128x128怎么办，计算量太大"><a href="#大的滤波核比如128x128怎么办，计算量太大" class="headerlink" title="大的滤波核比如128x128怎么办，计算量太大"></a>大的滤波核比如128x128怎么办，计算量太大</h2><h3 id="高斯核滤波可以分离水平和垂直步骤减少计算量"><a href="#高斯核滤波可以分离水平和垂直步骤减少计算量" class="headerlink" title="高斯核滤波可以分离水平和垂直步骤减少计算量"></a>高斯核滤波可以分离水平和垂直步骤减少计算量</h3><h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image8.png"
+                      class=""
+                >
+
+<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image9.png"
+                      class=""
+                >
+
+<h3 id="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完"><a href="#渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完" class="headerlink" title="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完"></a>渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完</h3><h3 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image10.png"
+                      class=""
+                >
+
+<h3 id="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"><a href="#这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。" class="headerlink" title="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"></a>这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。</h3><h4 id="不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"><a href="#不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？" class="headerlink" title="不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"></a>不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image11.png"
+                      class=""
+                >
+
+<h3 id="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"><a href="#问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立" class="headerlink" title="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"></a>问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立</h3><h2 id="滤波可以用到PCSS和SSR中等"><a href="#滤波可以用到PCSS和SSR中等" class="headerlink" title="滤波可以用到PCSS和SSR中等"></a>滤波可以用到PCSS和SSR中等</h2><h3 id="有一些很亮的点怎么解决（outlier-异常点）"><a href="#有一些很亮的点怎么解决（outlier-异常点）" class="headerlink" title="有一些很亮的点怎么解决（outlier 异常点）"></a>有一些很亮的点怎么解决（outlier 异常点）</h3><h4 id="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"><a href="#计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围" class="headerlink" title="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"></a>计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/30/Games202-lecture13/image12.png"
+                      class=""
+                >
+
+<h2 id="作业5是光线追踪，作业4是kulla-conty能量补全"><a href="#作业5是光线追踪，作业4是kulla-conty能量补全" class="headerlink" title="作业5是光线追踪，作业4是kulla conty能量补全"></a>作业5是光线追踪，作业4是kulla conty能量补全</h2>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Filtering</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games202-lecture14-实时光线追踪3</title>
     <url>/2025/01/31/Games202-lecture14/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -326,102 +422,6 @@
         <tag>Filtering</tag>
         <tag>Denoising</tag>
         <tag>Anti-Aliasing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-lecture13-实时光线追踪2</title>
-    <url>/2025/01/30/Games202-lecture13/</url>
-    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image1.png"
-                      class=""
-                >
-
-<h2 id="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"><a href="#低通滤波的大致做法（高斯核考虑大概3σ范围就行了）" class="headerlink" title="低通滤波的大致做法（高斯核考虑大概3σ范围就行了）"></a>低通滤波的大致做法（高斯核考虑大概3σ范围就行了）</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image2.png"
-                      class=""
-                >
-
-<h2 id="双边滤波（Bilateral-filtering）"><a href="#双边滤波（Bilateral-filtering）" class="headerlink" title="双边滤波（Bilateral filtering）"></a>双边滤波（Bilateral filtering）</h2><h3 id="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"><a href="#高斯滤波边缘的地方会被模糊，因为边界也是高频信号" class="headerlink" title="高斯滤波边缘的地方会被模糊，因为边界也是高频信号"></a>高斯滤波边缘的地方会被模糊，因为边界也是高频信号</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image3.png"
-                      class=""
-                >
-
-<h3 id="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"><a href="#双边滤波的思路和算法（公式相当于是多个高斯函数相乘）" class="headerlink" title="双边滤波的思路和算法（公式相当于是多个高斯函数相乘）"></a>双边滤波的思路和算法（公式相当于是多个高斯函数相乘）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image4.png"
-                      class=""
-                >
-
-<h3 id="噪点和边界无法区分，导致噪声可能也会保留"><a href="#噪点和边界无法区分，导致噪声可能也会保留" class="headerlink" title="噪点和边界无法区分，导致噪声可能也会保留"></a>噪点和边界无法区分，导致噪声可能也会保留</h3><h2 id="联合双边滤波（Joint-Bilateral-filtering）"><a href="#联合双边滤波（Joint-Bilateral-filtering）" class="headerlink" title="联合双边滤波（Joint Bilateral filtering）"></a>联合双边滤波（Joint Bilateral filtering）</h2><h3 id="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"><a href="#思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标" class="headerlink" title="思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标"></a>思路来源，把高斯滤波和双边滤波结合。距离和颜色两种指标</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image5.png"
-                      class=""
-                >
-
-<h3 id="不一定是高斯，只要随距离衰减就行"><a href="#不一定是高斯，只要随距离衰减就行" class="headerlink" title="不一定是高斯，只要随距离衰减就行"></a>不一定是高斯，只要随距离衰减就行</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image6.png"
-                      class=""
-                >
-
-<h3 id="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"><a href="#可以增加更多的标准来修改不同点的权重：深度、法线、颜色" class="headerlink" title="可以增加更多的标准来修改不同点的权重：深度、法线、颜色"></a>可以增加更多的标准来修改不同点的权重：深度、法线、颜色</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image7.png"
-                      class=""
-                >
-
-<h3 id="缺点：需要多计算，而且核的权重必须实时计算"><a href="#缺点：需要多计算，而且核的权重必须实时计算" class="headerlink" title="缺点：需要多计算，而且核的权重必须实时计算"></a>缺点：需要多计算，而且核的权重必须实时计算</h3><h2 id="大的滤波核比如128x128怎么办，计算量太大"><a href="#大的滤波核比如128x128怎么办，计算量太大" class="headerlink" title="大的滤波核比如128x128怎么办，计算量太大"></a>大的滤波核比如128x128怎么办，计算量太大</h2><h3 id="高斯核滤波可以分离水平和垂直步骤减少计算量"><a href="#高斯核滤波可以分离水平和垂直步骤减少计算量" class="headerlink" title="高斯核滤波可以分离水平和垂直步骤减少计算量"></a>高斯核滤波可以分离水平和垂直步骤减少计算量</h3><h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image8.png"
-                      class=""
-                >
-
-<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image9.png"
-                      class=""
-                >
-
-<h3 id="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完"><a href="#渐进增加核的大小，多次滤波，但是每次滤波增加间隔2-i采集，图例没有画完" class="headerlink" title="渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完"></a>渐进增加核的大小，多次滤波，但是每次滤波增加间隔2^i采集，图例没有画完</h3><h3 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image10.png"
-                      class=""
-                >
-
-<h3 id="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"><a href="#这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。" class="headerlink" title="这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。"></a>这样做的原理，这里从频域空间解释了为什么可以间隔采样（没看懂）。</h3><h4 id="不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"><a href="#不过我感觉是i-1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5-125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？" class="headerlink" title="不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？"></a>不过我感觉是i&#x3D;1时黑色的球和相邻的灰色球包含了一段相同信息，而间隔一个之后就完全没有相同信息了。然后采样三次相当于是5x5x5&#x3D;125的滤波核，感觉应该用4x4x4就可以模拟64的滤波核了吧？</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image11.png"
-                      class=""
-                >
-
-<h3 id="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"><a href="#问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立" class="headerlink" title="问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立"></a>问题：联合双边滤波会留下高频信息，上面的图默认说是把高频全都去掉了才能成立</h3><h2 id="滤波可以用到PCSS和SSR中等"><a href="#滤波可以用到PCSS和SSR中等" class="headerlink" title="滤波可以用到PCSS和SSR中等"></a>滤波可以用到PCSS和SSR中等</h2><h3 id="有一些很亮的点怎么解决（outlier-异常点）"><a href="#有一些很亮的点怎么解决（outlier-异常点）" class="headerlink" title="有一些很亮的点怎么解决（outlier 异常点）"></a>有一些很亮的点怎么解决（outlier 异常点）</h3><h4 id="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"><a href="#计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围" class="headerlink" title="计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围"></a>计算整个画面的均值和方差，然后判断点是否为outlier，最后把Outlier给Clamp到正常值范围</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/30/Games202-lecture13/image12.png"
-                      class=""
-                >
-
-<h2 id="作业5是光线追踪，作业4是kulla-conty能量补全"><a href="#作业5是光线追踪，作业4是kulla-conty能量补全" class="headerlink" title="作业5是光线追踪，作业4是kulla conty能量补全"></a>作业5是光线追踪，作业4是kulla conty能量补全</h2>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering</tag>
       </tags>
   </entry>
   <entry>
@@ -591,118 +591,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Games202-lecture5-实时的环境光照1</title>
-    <url>/2025/01/22/Games202-lecture5/</url>
-    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image1.png"
-                      class=""
-                >
-
-<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image2.png"
-                      class=""
-                >
-
-<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image3.png"
-                      class=""
-                >
-
-<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image4.png"
-                      class=""
-                >
-
-<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image5.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image6.png"
-                      class=""
-                >
-
-<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image7.png"
-                      class=""
-                >
-
-<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image8.png"
-                      class=""
-                >
-
-<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image9.png"
-                      class=""
-                >
-
-<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image10.png"
-                      class=""
-                >
-
-<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image11.png"
-                      class=""
-                >
-
-<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image12.png"
-                      class=""
-                >
-
-<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image13.png"
-                      class=""
-                >
-
-<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image14.png"
-                      class=""
-                >
-
-<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Shadow</tag>
-        <tag>Soft Shadow</tag>
-        <tag>PBR</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture6-实时的环境光照2</title>
     <url>/2025/01/23/Games202-lecture6/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -818,6 +706,118 @@
         <tag>PBR</tag>
         <tag>Environment Lighting</tag>
         <tag>Global Illumination</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture5-实时的环境光照1</title>
+    <url>/2025/01/22/Games202-lecture5/</url>
+    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image1.png"
+                      class=""
+                >
+
+<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image2.png"
+                      class=""
+                >
+
+<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image3.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image4.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image5.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image6.png"
+                      class=""
+                >
+
+<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image7.png"
+                      class=""
+                >
+
+<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image8.png"
+                      class=""
+                >
+
+<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image9.png"
+                      class=""
+                >
+
+<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image10.png"
+                      class=""
+                >
+
+<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image11.png"
+                      class=""
+                >
+
+<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image12.png"
+                      class=""
+                >
+
+<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image13.png"
+                      class=""
+                >
+
+<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image14.png"
+                      class=""
+                >
+
+<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Shadow</tag>
+        <tag>PBR</tag>
+        <tag>Soft Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -1271,89 +1271,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记录Hexo与Github搭建个人博客</title>
-    <url>/2025/01/11/LearnUseHexo/</url>
-    <content><![CDATA[<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
-<li>本地打包：<code>hexo g</code></li>
-<li>本地启动：<code>hexo s</code></li>
-<li>本地打包并推送到 Git：<code>hexo g -d</code></li>
-<li>创建新文章：<code>hexo new post 测试文章</code></li>
-<li>创建自定义页：<code>hexo new page 新页</code></li>
-<li>清除缓存：<code>hexo clean</code></li>
-</ul>
-<h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><h3 id="1-统计量不显示"><a href="#1-统计量不显示" class="headerlink" title="1.统计量不显示"></a>1.统计量不显示</h3><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image1.png"
-                      class=""
-                >
-<p>server_url添加的是这个REST API</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image2.png"
-                      class=""
-                >
-<h3 id="2-图片在本地MarkDown显示但是在Hexo上不显示"><a href="#2-图片在本地MarkDown显示但是在Hexo上不显示" class="headerlink" title="2.图片在本地MarkDown显示但是在Hexo上不显示"></a>2.图片在本地MarkDown显示但是在Hexo上不显示</h3><p>需要安装hexo-renderer-marked来解决</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure></div>
-<h3 id="3-图片没有打包到Public中"><a href="#3-图片没有打包到Public中" class="headerlink" title="3. 图片没有打包到Public中"></a>3. 图片没有打包到Public中</h3><p>使用<code>hexo clean</code>清除缓存，然后再重新生成<code>hexo g</code></p>
-<h3 id="4-域名文件CNAME重新生成会被删除"><a href="#4-域名文件CNAME重新生成会被删除" class="headerlink" title="4. 域名文件CNAME重新生成会被删除"></a>4. 域名文件CNAME重新生成会被删除</h3><p>CNAME文件是用来把新域名重载到username.github.io的，因为hexo上传会重新生成public目录，CNAME文件被删除会导致访问报错：<code>404 There is not a GitHub Pages site here</code><br>解决方式是把CNAME文件放到hexo-blog&#x2F;source目录，这样重新生成public目录就会带着CNAME文件了</p>
-<h3 id="5-本地打包并推送到git失败"><a href="#5-本地打包并推送到git失败" class="headerlink" title="5. 本地打包并推送到git失败"></a>5. 本地打包并推送到git失败</h3><p>使用<code>hexo g -d</code>指令失败，提示无法连接到服务器。这个我多试几次就好了（运气不好可能十几次），</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image3.png"
-                      class=""
-                >
-<p>另一个办法应该是可以在Public空目录下拉一个git，然后再用<code>hexo g</code>重新生成，最后自己手动push到git仓库</p>
-<h3 id="6-替换redefine主题之后hexo-clean-hexo-g会报错"><a href="#6-替换redefine主题之后hexo-clean-hexo-g会报错" class="headerlink" title="6. 替换redefine主题之后hexo clean|hexo g会报错"></a>6. 替换redefine主题之后hexo clean|hexo g会报错</h3><p>当使用redefine主题重新生成的时候会报错：<code>ERROR Asset render failed</code></p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">ERROR Asset render failed: css/common/markdown.css</span><br><span class="line"><span class="function">CssSyntaxError: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">themes</span>\<span class="title">redefine</span>\<span class="title">source</span>\<span class="title">css</span>\<span class="title">common</span>\<span class="title">markdown.styl</span>:131:1: <span class="title">Unknown</span> <span class="title">word</span> <span class="title">at</span> <span class="title">Input.error</span> (<span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">postcss</span>\<span class="title">lib</span>\<span class="title">input.js</span>:128:16)</span></span><br><span class="line"><span class="function">....</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">ERROR</span> <span class="title">Asset</span> <span class="title">render</span> <span class="title">failed</span>: <span class="title">css</span>/<span class="title">layout</span>/<span class="title">category</span>-<span class="title">list.css</span> <span class="title">CssSyntaxError</span>: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">themes</span>\<span class="title">redefine</span>\<span class="title">source</span>\<span class="title">css</span>\<span class="title">layout</span>\<span class="title">category</span>-<span class="title">list.styl</span>:23:1: <span class="title">Unknown</span> <span class="title">word</span> <span class="title">at</span> <span class="title">Input.error</span> (<span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">postcss</span>\<span class="title">lib</span>\<span class="title">input.js</span>:128:16)</span></span><br><span class="line"><span class="function">...</span></span><br></pre></td></tr></table></figure></div>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image4.png"
-                      class="" title="报错样例"
-                >
-<p>经过一通排查，发现是markdown.styl和category-list.styl文件中用的<code>+redefine-tablet()</code>和<code>+redefine-mobile()</code>这两个Mixin未定义导致的。Mixin相当于是函数，用’+’来调用。通过全局搜索发现函数的定义在basic.styl中，解决方法是引入basic.styl这个头文件。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image5.png"
-                      class="" title="解决方法"
-                >
-
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image6.png"
-                      class="" title="解决方法"
-                >
-
-<h3 id="7-随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）"><a href="#7-随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）" class="headerlink" title="7.随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）"></a>7.随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）</h3><p>网上找了很多解决方案都不能用，发现把主题配置中把<code>single_page</code>改成<code>false</code>就可以了。</p>
-<div class="code-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Whether to enable single page experience (using swup). See https://swup.js.org/. similar to pjax</span></span><br><span class="line"><span class="attr">single_page:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></div>
-
-<p>后面发现把<code>single_page</code>改成<code>false</code>后加载确实变慢了。为了速度，又倒腾了半天，终于找到更好的解决办法，在<code>swup.ejs</code>配置中添加忽略<code>/essays</code>页面</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/11/LearnUseHexo/image7.png"
-                      class="" title="忽略essays页面"
-                >
-<p>oh, yes!</p>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
-<p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网站</category>
-      </categories>
-      <tags>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture9-全局光照（屏幕空间）</title>
     <url>/2025/01/26/Games202-lecture9/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><p>这一节课主要是把”屏幕空间的方向性遮挡”和”屏幕空间反射”讲完。</p>
@@ -1588,34 +1505,86 @@
       </tags>
   </entry>
   <entry>
-    <title>RenderDoc和Mumu模拟器截帧步骤</title>
-    <url>/2025/03/28/RecordRenderdocForMumu/</url>
-    <content><![CDATA[
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f7089d224a9f794893c83b602c4d5ca3b4160b5ddffaf3dbe33073e49a65597b">8eac6654248299c0dd9820bf6864fe7d3e22337c8a66294909eebbe24f6672b5ce9be855c84afb7b8322dd61fa4d43e9f343e1052b841a5a1a7295e50768d879e2a5d993ad52e867888dda4cc6d3dc4be04131fc9bc71baf79319dd41b2f58b89dc7ec011a9f2a458b06d6df5a6e0ce87ae933306865e11476fc6e9da12c2a5106b04fb48bc7783d1bb4652b7b61daba96b226045004cc8221535b9b876a8b55d9274bab2ff8fa4aa5586f13c520fd619c2e29a552a693eb46229519ac5e91ddd05d351071590c7b12c78ee56ba2931ad1e6659b3ec866c0816b85a81e28fefa8da91f14c8912ec8e1a97ff7a6c721fb414be11ee15fc4f0a5123da22cdc49d20a638117377300f184146bc52d64ff620682e076dd30874f15fbef6d6a2657b32c9809d50fa6c6466722e293193d35d6306fc358a1ff386d8744f09b2256658543321b334bf070d20e9f1f82209ee75dcde8fc88ce9487d7aed6a6a1a557f2570451e20cbfa8fca1d7fae81b2d0436b265581261239c5c04fff15b567a4e8f450b1bb09a64399ef57d2b0b4d31666e007e785da42d4787ee7b9604ccf3aebf307860b998fcc37127c4bd16b2b2abda81459de6a080e4cb483cdda4f947ef029a780d78f8511746ea0aadcf64cba9927ca300ef47a9aa45dd5956595ab274142cffa8fb6114e807daec28d52c3779c843347885c559f9ff8d0564af8f0e770894cc535d10d0ced20b34a19ac6c28fe77cd91b0fbe7266826d5e6c9e003d8546ff612c72cda740ff01e766b5c94e02b7c7dcfd875ad1959002f6a204182d97e76fdec647dc2b952d71b1741c903452ccabf873f0c5a86001702e58b5fe899f41c76e19a44a68c758420eb8e9b3db4f75f22e6a14b3f2845e17628687a43614ccde50babbc9594ef4bb9939f471d5fb70e5a6ad2dc5a0e42a1960cbb5ff19bd6b6c9e9829747b13904a5cbab08051e2d04e635019298f6f629f07810e695f7104c9035aa83fc3667b49b469a21b48898519822af5e80878401c9b4b7a159d8ad16d2cd911dca10c6e53afc1678f43cf21bfedc2f5dad4c59f38e35533bdad3426c40e7958685078533e9d55e8a367ac832409d88e6fdb879811a17b87122258d5b4bb72e67bd823c7053d31016bc90a34efb78bb0c64a5c3d388a462955ff8251f5e7b172f39155485e0eecdd267354f63ab4544ba6bddf8a48a5b00aa5d0e7bef64ec66f02f097763adcd60fc9717d3d4eee826a427a0c0332158c06bc46da69aa9c1de0ffaa4aaf8aa0dda99898ca761ef016d0341f62aae5728ade4aba34b1c0d98872588dc1eaecd4707a3b1d5014dc847cdd53a1b2d4865212b9f344fc02b45b2e3beb861a32ca854581241dd670fbd09c8c8a0fd383960dce4a74703a0f695e5fd43416904b730129cbf852311bb68af408cb007fa20033e9948306fef2dbacc028d0072ea0636292042e0f1c8a7ab87b31e90b494a627d4f6c64531ab920a3463b7deb0fe5d5626d300e58fd7e49cd1702961979bb67c757a8088717bf7dc7bf2c5561418a7109e4401d2b3a757d8319494c6b8aabc0870e7aba401a4becaa49f6ed14a1b7302266c6fc94ea8965cc8cbbbb4c3fbec8852811c4720cf5d62c08e058f36fe7a7ab72bc5a5c24885a0ea38f7d8469025473675b5f9afb538dc1b6f6323261f77772eced9bc552bd18f18fd49d13ebc8420d005bf0186ccefce7e158798daf48256bd2af63a435a62722e64f996e829b3896e63600832beea0397da575e61d52fad25459dc109bc10b4fb2dd7d2374b1981de786ce9cfb57f7cd278e4ad12fcb8e81d864a93463e853e3545d2b197199ab7fb4ac994a88af3f9106b881a3e98a39a1b6d1f8027d61322270e12293b8261433e0908a5750bd4bf871836fff6367d9400686f28e6a7e7d7f2540b1e44264e1af1632e241353555792edceb0bd1f5e77042a7a090816e7ecddb7b60cb670ee9a98f9bfead5cdc6e52821ebf5c4571b11df67da0fee2cb883ac7fb4e142cea5d1f344bf3c8124f07339698d444e1f1ea28fc91fd371c824fa5652b8fbec80255b12cc8102c11f2592ad1b1ab80c01aae6997b8708c6eaeddf16960abd11a3ba46e74fcd383a55b26b4260f61acf3463fd692a8a9bc36cef8dccd07330a4999ddaf20deaf51f7d3987c1b84ef21dce03dd112be11abe5e4d1747966116c6a986e3f25c5a9012245d6453cc6fffc957b026d42020fbf9ef9345b5f9218863fda3653912c2174e15603e545a6d7d4236586bcac69995307628f601c7fab1e33a86037748e2c794eea9b8d5ba752fcd6027da5c4aad766a8c50c43d8f114488df27d22ae8dc3d80f99f87034af65a9cd274f4d5d64668304e1896b03d9d2369180f32e5b2fb35ed70a5b5e008a926637b510c975b34e092920fc39d819808aba746a6fabe96239e94fdf2b172b95d866e99de5ed12d4d4415624a0df2d5a8c24d54ff1c1ff9f43bfbd6b9269e4a329a0ad020489781d93bedb5decf4b74827a51ae0895274bda2911428bd2a796538a65dc5c5483ed1716241e88caf88e8e261b77e12f17cf5173ed353c387fa4e606de4f0feb47d6236a6c47e2177e363ff2b7d2d3a9e8ace2fe18c4fe5dabe4cf4fe8328b8ba5abb67774aec47af15aaa71236e81a0d57cf26ed299c0327b51163bb3a19d3c9563167c3bcf9a75a9eb5dba99b91da5dd8325b2cfeda34de240589d6d0b47412920f30a38221a36955fa2af6ca47061c02fe2ea0a99f5e3c3427ee1095b0307a570d677ea22db6dfb218e575ea9169a8a755604cbb5f8afd15d744e8162e5e241a81b2c585a32b457d95caeeb9cc51b65bca52eaf7f985d92802ec840a192c4d9874e19d626b2e2cc61537b61b3b7bc67abc19934433a826a86a968710a9f8f860a81ad7f913a510b612c66629d6f15139c247d3ceea8b5572ade6856715145fcdd24df2f8b6a0a9b85597308b5890e30fa9af2d574d2ac6b88cb65ec05423db112bee9d54357e099b4d05ba3b1969106d8cc52a9128b4dab5c2c581d0accc9784faf5948618467d25dc03ffe6e56037d6d442fc70e5f2b8990a84535f88a44423a743082dd2381e32dd58d8770ce7e20a09b0667a4826a45a9e9e360d695245346b9ff99ad4ac0bd92b9625a18686041cd38fd0c1fb0cf076c2831bc569051dac4d2bb757c4a17c92af1a0cb3a458f4bd4a61dbeeb31ddbd59fd35421ad849a2bcfc8a4511828d8d49247acf12000fd6aa9f0943b8137b6af1acad6e440b4f1c373e914235e8662cae837188f1d7b6e57e652f224a54d3772e297cfbbfb4b0361154eb21e68c933d5879abe22c46e5c2c4a1c7cd4202ca7fc130f3f46dd457e3658a164a39bbf90c1450730cfd5d1cea0e99baf96f41b762dbbd9fd1b2d58087da3de4702390a571c811a9f451f90f2ebdde1a544b6979dca94ee55bf2bf12ab363b098bf170af977fcc5220e60460ef6d274909734e48c536ac818f4fbe8d651705e5edc90255c4a28eb57852923d046547abda63320bbd8b2c32308c2eed505dd064125039d7263839beae6dc161193cd0ef6d9c2158e221c5c3357cb72a03c941809f32c9766021cb15ba89ca075bf3ff55ebc8228b845a2a2b8fb463843878c031dbb09a8e216f1d246f530534474cb640d849eef8151317ade48d65667ebceb60ff8348e16dfb3f6ab012c8251e4e1a5bbfda2164640764b59ab20df562ff7101bc294943fe252deb76534a9b1d8f0c81487f312dd99349ad359829744a2384ccdafecf83c9b191ee8b4d54df33df439980a1c4363c6c3cacac6b2add11e269ac8764f6e1bea16dc7fd8c88a10cc75ec38ecc0fa1f8607028098fc23fb5b84ed7266ea03ec715360ad07320b514107b8a2ecc04939cddf8c4679fe61ab513b803dc246d73872d7d0e46511edf3c6c694d37aa0eb75201ca91b8c66f773d2c0dc1597594ffeae43223f595f2cf40986cd75c323ae4fcfee911dfa9244128bac5392708ed29c9fe683d43045c6e424fb22729e6f3f1d7c84c7fb472020137c6bf711148788310056261c6ec804176573d55d28ac05d5346a60dd6b3a7239b855d1bce08e8f3e99c79964593a86e3d7a205f7460f75b85fe31b340e02d5d6688a8668cc9d</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
-<script data-swup-reload-script type="module">
-import {initHBE} from "/js/plugins/hbe.js";
-  console.log("hexo-blog-encrypt: loaded.");
-    initHBE();
-</script>
+    <title>记录Hexo与Github搭建个人博客</title>
+    <url>/2025/01/11/LearnUseHexo/</url>
+    <content><![CDATA[<h2 id="Hexo-相关命令指南"><a href="#Hexo-相关命令指南" class="headerlink" title="Hexo 相关命令指南"></a>Hexo 相关命令指南</h2><ul>
+<li>本地打包：<code>hexo g</code></li>
+<li>本地启动：<code>hexo s</code></li>
+<li>本地打包并推送到 Git：<code>hexo g -d</code></li>
+<li>创建新文章：<code>hexo new post 测试文章</code></li>
+<li>创建自定义页：<code>hexo new page 新页</code></li>
+<li>清除缓存：<code>hexo clean</code></li>
+</ul>
+<h2 id="出现的一点问题"><a href="#出现的一点问题" class="headerlink" title="出现的一点问题"></a>出现的一点问题</h2><h3 id="1-统计量不显示"><a href="#1-统计量不显示" class="headerlink" title="1.统计量不显示"></a>1.统计量不显示</h3><p>统计阅读量的这里需要添加server_url，貌似是只有中国地区需要</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image1.png"
+                      class=""
+                >
+<p>server_url添加的是这个REST API</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image2.png"
+                      class=""
+                >
+<h3 id="2-图片在本地MarkDown显示但是在Hexo上不显示"><a href="#2-图片在本地MarkDown显示但是在Hexo上不显示" class="headerlink" title="2.图片在本地MarkDown显示但是在Hexo上不显示"></a>2.图片在本地MarkDown显示但是在Hexo上不显示</h3><p>需要安装hexo-renderer-marked来解决</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure></div>
+<h3 id="3-图片没有打包到Public中"><a href="#3-图片没有打包到Public中" class="headerlink" title="3. 图片没有打包到Public中"></a>3. 图片没有打包到Public中</h3><p>使用<code>hexo clean</code>清除缓存，然后再重新生成<code>hexo g</code></p>
+<h3 id="4-域名文件CNAME重新生成会被删除"><a href="#4-域名文件CNAME重新生成会被删除" class="headerlink" title="4. 域名文件CNAME重新生成会被删除"></a>4. 域名文件CNAME重新生成会被删除</h3><p>CNAME文件是用来把新域名重载到username.github.io的，因为hexo上传会重新生成public目录，CNAME文件被删除会导致访问报错：<code>404 There is not a GitHub Pages site here</code><br>解决方式是把CNAME文件放到hexo-blog&#x2F;source目录，这样重新生成public目录就会带着CNAME文件了</p>
+<h3 id="5-本地打包并推送到git失败"><a href="#5-本地打包并推送到git失败" class="headerlink" title="5. 本地打包并推送到git失败"></a>5. 本地打包并推送到git失败</h3><p>使用<code>hexo g -d</code>指令失败，提示无法连接到服务器。这个我多试几次就好了（运气不好可能十几次），</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image3.png"
+                      class=""
+                >
+<p>另一个办法应该是可以在Public空目录下拉一个git，然后再用<code>hexo g</code>重新生成，最后自己手动push到git仓库</p>
+<h3 id="6-替换redefine主题之后hexo-clean-hexo-g会报错"><a href="#6-替换redefine主题之后hexo-clean-hexo-g会报错" class="headerlink" title="6. 替换redefine主题之后hexo clean|hexo g会报错"></a>6. 替换redefine主题之后hexo clean|hexo g会报错</h3><p>当使用redefine主题重新生成的时候会报错：<code>ERROR Asset render failed</code></p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">ERROR Asset render failed: css/common/markdown.css</span><br><span class="line"><span class="function">CssSyntaxError: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">themes</span>\<span class="title">redefine</span>\<span class="title">source</span>\<span class="title">css</span>\<span class="title">common</span>\<span class="title">markdown.styl</span>:131:1: <span class="title">Unknown</span> <span class="title">word</span> <span class="title">at</span> <span class="title">Input.error</span> (<span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">postcss</span>\<span class="title">lib</span>\<span class="title">input.js</span>:128:16)</span></span><br><span class="line"><span class="function">....</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">ERROR</span> <span class="title">Asset</span> <span class="title">render</span> <span class="title">failed</span>: <span class="title">css</span>/<span class="title">layout</span>/<span class="title">category</span>-<span class="title">list.css</span> <span class="title">CssSyntaxError</span>: <span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">themes</span>\<span class="title">redefine</span>\<span class="title">source</span>\<span class="title">css</span>\<span class="title">layout</span>\<span class="title">category</span>-<span class="title">list.styl</span>:23:1: <span class="title">Unknown</span> <span class="title">word</span> <span class="title">at</span> <span class="title">Input.error</span> (<span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Daron</span>\<span class="title">hexo</span>-<span class="title">blog</span>\<span class="title">node_modules</span>\<span class="title">postcss</span>\<span class="title">lib</span>\<span class="title">input.js</span>:128:16)</span></span><br><span class="line"><span class="function">...</span></span><br></pre></td></tr></table></figure></div>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image4.png"
+                      class="" title="报错样例"
+                >
+<p>经过一通排查，发现是markdown.styl和category-list.styl文件中用的<code>+redefine-tablet()</code>和<code>+redefine-mobile()</code>这两个Mixin未定义导致的。Mixin相当于是函数，用’+’来调用。通过全局搜索发现函数的定义在basic.styl中，解决方法是引入basic.styl这个头文件。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image5.png"
+                      class="" title="解决方法"
+                >
+
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image6.png"
+                      class="" title="解决方法"
+                >
+
+<h3 id="7-随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）"><a href="#7-随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）" class="headerlink" title="7.随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）"></a>7.随笔页面第一次进入不显示评论，需要刷新才显示（redefine主题）</h3><p>网上找了很多解决方案都不能用，发现把主题配置中把<code>single_page</code>改成<code>false</code>就可以了。</p>
+<div class="code-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Whether to enable single page experience (using swup). See https://swup.js.org/. similar to pjax</span></span><br><span class="line"><span class="attr">single_page:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></div>
+
+<p>后面发现把<code>single_page</code>改成<code>false</code>后加载确实变慢了。为了速度，又倒腾了半天，终于找到更好的解决办法，在<code>swup.ejs</code>配置中添加忽略<code>/essays</code>页面</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/11/LearnUseHexo/image7.png"
+                      class="" title="忽略essays页面"
+                >
+<p>oh, yes!</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><blockquote>
+<p><a class="link"   href="https://blog.csdn.net/yaorongke/article/details/119089190" >GitHub Pages + Hexo搭建个人博客网站，史上最全教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B" >博客搭建详细教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://arcsin2.cloud/2023/02/23/Hexo-%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" >Hexo博客无法显示图片解决方法<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link"   href="https://blog.csdn.net/qq_43000128/article/details/134348650" >解决hexo图片无法显示问题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>截帧</category>
-        <category>RenderDoc</category>
+        <category>网站</category>
       </categories>
       <tags>
-        <tag>RenderDoc</tag>
-        <tag>截帧</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -1736,6 +1705,37 @@ import {initHBE} from "/js/plugins/hbe.js";
         <tag>UE</tag>
         <tag>UE5</tag>
         <tag>UE Source</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RenderDoc和Mumu模拟器截帧步骤</title>
+    <url>/2025/03/28/RecordRenderdocForMumu/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="f7089d224a9f794893c83b602c4d5ca3b4160b5ddffaf3dbe33073e49a65597b">8eac6654248299c0dd9820bf6864fe7d3e22337c8a66294909eebbe24f6672b5ce9be855c84afb7b8322dd61fa4d43e9f343e1052b841a5a1a7295e50768d879e2a5d993ad52e867888dda4cc6d3dc4be04131fc9bc71baf79319dd41b2f58b89dc7ec011a9f2a458b06d6df5a6e0ce87ae933306865e11476fc6e9da12c2a5106b04fb48bc7783d1bb4652b7b61daba96b226045004cc8221535b9b876a8b55d9274bab2ff8fa4aa5586f13c520fd619c2e29a552a693eb46229519ac5e91ddd05d351071590c7b12c78ee56ba2931ad1e6659b3ec866c0816b85a81e28fefa8da91f14c8912ec8e1a97ff7a6c721fb414be11ee15fc4f0a5123da22cdc49d20a638117377300f184146bc52d64ff620682e076dd30874f15fbef6d6a2657b32c9809d50fa6c6466722e293193d35d6306fc358a1ff386d8744f09b2256658543321b334bf070d20e9f1f82209ee75dcde8fc88ce9487d7aed6a6a1a557f2570451e20cbfa8fca1d7fae81b2d0436b265581261239c5c04fff15b567a4e8f450b1bb09a64399ef57d2b0b4d31666e007e785da42d4787ee7b9604ccf3aebf307860b998fcc37127c4bd16b2b2abda81459de6a080e4cb483cdda4f947ef029a780d78f8511746ea0aadcf64cba9927ca300ef47a9aa45dd5956595ab274142cffa8fb6114e807daec28d52c3779c843347885c559f9ff8d0564af8f0e770894cc535d10d0ced20b34a19ac6c28fe77cd91b0fbe7266826d5e6c9e003d8546ff612c72cda740ff01e766b5c94e02b7c7dcfd875ad1959002f6a204182d97e76fdec647dc2b952d71b1741c903452ccabf873f0c5a86001702e58b5fe899f41c76e19a44a68c758420eb8e9b3db4f75f22e6a14b3f2845e17628687a43614ccde50babbc9594ef4bb9939f471d5fb70e5a6ad2dc5a0e42a1960cbb5ff19bd6b6c9e9829747b13904a5cbab08051e2d04e635019298f6f629f07810e695f7104c9035aa83fc3667b49b469a21b48898519822af5e80878401c9b4b7a159d8ad16d2cd911dca10c6e53afc1678f43cf21bfedc2f5dad4c59f38e35533bdad3426c40e7958685078533e9d55e8a367ac832409d88e6fdb879811a17b87122258d5b4bb72e67bd823c7053d31016bc90a34efb78bb0c64a5c3d388a462955ff8251f5e7b172f39155485e0eecdd267354f63ab4544ba6bddf8a48a5b00aa5d0e7bef64ec66f02f097763adcd60fc9717d3d4eee826a427a0c0332158c06bc46da69aa9c1de0ffaa4aaf8aa0dda99898ca761ef016d0341f62aae5728ade4aba34b1c0d98872588dc1eaecd4707a3b1d5014dc847cdd53a1b2d4865212b9f344fc02b45b2e3beb861a32ca854581241dd670fbd09c8c8a0fd383960dce4a74703a0f695e5fd43416904b730129cbf852311bb68af408cb007fa20033e9948306fef2dbacc028d0072ea0636292042e0f1c8a7ab87b31e90b494a627d4f6c64531ab920a3463b7deb0fe5d5626d300e58fd7e49cd1702961979bb67c757a8088717bf7dc7bf2c5561418a7109e4401d2b3a757d8319494c6b8aabc0870e7aba401a4becaa49f6ed14a1b7302266c6fc94ea8965cc8cbbbb4c3fbec8852811c4720cf5d62c08e058f36fe7a7ab72bc5a5c24885a0ea38f7d8469025473675b5f9afb538dc1b6f6323261f77772eced9bc552bd18f18fd49d13ebc8420d005bf0186ccefce7e158798daf48256bd2af63a435a62722e64f996e829b3896e63600832beea0397da575e61d52fad25459dc109bc10b4fb2dd7d2374b1981de786ce9cfb57f7cd278e4ad12fcb8e81d864a93463e853e3545d2b197199ab7fb4ac994a88af3f9106b881a3e98a39a1b6d1f8027d61322270e12293b8261433e0908a5750bd4bf871836fff6367d9400686f28e6a7e7d7f2540b1e44264e1af1632e241353555792edceb0bd1f5e77042a7a090816e7ecddb7b60cb670ee9a98f9bfead5cdc6e52821ebf5c4571b11df67da0fee2cb883ac7fb4e142cea5d1f344bf3c8124f07339698d444e1f1ea28fc91fd371c824fa5652b8fbec80255b12cc8102c11f2592ad1b1ab80c01aae6997b8708c6eaeddf16960abd11a3ba46e74fcd383a55b26b4260f61acf3463fd692a8a9bc36cef8dccd07330a4999ddaf20deaf51f7d3987c1b84ef21dce03dd112be11abe5e4d1747966116c6a986e3f25c5a9012245d6453cc6fffc957b026d42020fbf9ef9345b5f9218863fda3653912c2174e15603e545a6d7d4236586bcac69995307628f601c7fab1e33a86037748e2c794eea9b8d5ba752fcd6027da5c4aad766a8c50c43d8f114488df27d22ae8dc3d80f99f87034af65a9cd274f4d5d64668304e1896b03d9d2369180f32e5b2fb35ed70a5b5e008a926637b510c975b34e092920fc39d819808aba746a6fabe96239e94fdf2b172b95d866e99de5ed12d4d4415624a0df2d5a8c24d54ff1c1ff9f43bfbd6b9269e4a329a0ad020489781d93bedb5decf4b74827a51ae0895274bda2911428bd2a796538a65dc5c5483ed1716241e88caf88e8e261b77e12f17cf5173ed353c387fa4e606de4f0feb47d6236a6c47e2177e363ff2b7d2d3a9e8ace2fe18c4fe5dabe4cf4fe8328b8ba5abb67774aec47af15aaa71236e81a0d57cf26ed299c0327b51163bb3a19d3c9563167c3bcf9a75a9eb5dba99b91da5dd8325b2cfeda34de240589d6d0b47412920f30a38221a36955fa2af6ca47061c02fe2ea0a99f5e3c3427ee1095b0307a570d677ea22db6dfb218e575ea9169a8a755604cbb5f8afd15d744e8162e5e241a81b2c585a32b457d95caeeb9cc51b65bca52eaf7f985d92802ec840a192c4d9874e19d626b2e2cc61537b61b3b7bc67abc19934433a826a86a968710a9f8f860a81ad7f913a510b612c66629d6f15139c247d3ceea8b5572ade6856715145fcdd24df2f8b6a0a9b85597308b5890e30fa9af2d574d2ac6b88cb65ec05423db112bee9d54357e099b4d05ba3b1969106d8cc52a9128b4dab5c2c581d0accc9784faf5948618467d25dc03ffe6e56037d6d442fc70e5f2b8990a84535f88a44423a743082dd2381e32dd58d8770ce7e20a09b0667a4826a45a9e9e360d695245346b9ff99ad4ac0bd92b9625a18686041cd38fd0c1fb0cf076c2831bc569051dac4d2bb757c4a17c92af1a0cb3a458f4bd4a61dbeeb31ddbd59fd35421ad849a2bcfc8a4511828d8d49247acf12000fd6aa9f0943b8137b6af1acad6e440b4f1c373e914235e8662cae837188f1d7b6e57e652f224a54d3772e297cfbbfb4b0361154eb21e68c933d5879abe22c46e5c2c4a1c7cd4202ca7fc130f3f46dd457e3658a164a39bbf90c1450730cfd5d1cea0e99baf96f41b762dbbd9fd1b2d58087da3de4702390a571c811a9f451f90f2ebdde1a544b6979dca94ee55bf2bf12ab363b098bf170af977fcc5220e60460ef6d274909734e48c536ac818f4fbe8d651705e5edc90255c4a28eb57852923d046547abda63320bbd8b2c32308c2eed505dd064125039d7263839beae6dc161193cd0ef6d9c2158e221c5c3357cb72a03c941809f32c9766021cb15ba89ca075bf3ff55ebc8228b845a2a2b8fb463843878c031dbb09a8e216f1d246f530534474cb640d849eef8151317ade48d65667ebceb60ff8348e16dfb3f6ab012c8251e4e1a5bbfda2164640764b59ab20df562ff7101bc294943fe252deb76534a9b1d8f0c81487f312dd99349ad359829744a2384ccdafecf83c9b191ee8b4d54df33df439980a1c4363c6c3cacac6b2add11e269ac8764f6e1bea16dc7fd8c88a10cc75ec38ecc0fa1f8607028098fc23fb5b84ed7266ea03ec715360ad07320b514107b8a2ecc04939cddf8c4679fe61ab513b803dc246d73872d7d0e46511edf3c6c694d37aa0eb75201ca91b8c66f773d2c0dc1597594ffeae43223f595f2cf40986cd75c323ae4fcfee911dfa9244128bac5392708ed29c9fe683d43045c6e424fb22729e6f3f1d7c84c7fb472020137c6bf711148788310056261c6ec804176573d55d28ac05d5346a60dd6b3a7239b855d1bce08e8f3e99c79964593a86e3d7a205f7460f75b85fe31b340e02d5d6688a8668cc9d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
+<script data-swup-reload-script type="module">
+import {initHBE} from "/js/plugins/hbe.js";
+  console.log("hexo-blog-encrypt: loaded.");
+    initHBE();
+</script>
+]]></content>
+      <categories>
+        <category>截帧</category>
+        <category>RenderDoc</category>
+      </categories>
+      <tags>
+        <tag>RenderDoc</tag>
+        <tag>截帧</tag>
       </tags>
   </entry>
 </search>
