@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Games202-lecture12-实时光线追踪1</title>
-    <url>/2025/01/29/Games202-lecture12/</url>
-    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image1.png"
-                      class=""
-                >
-
-<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image2.png"
-                      class=""
-                >
-
-<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image3.png"
-                      class=""
-                >
-
-<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image4.png"
-                      class=""
-                >
-
-<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image5.png"
-                      class=""
-                >
-
-<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image6.png"
-                      class=""
-                >
-
-<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering</tag>
-        <tag>Denoising</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture3-实时阴影和PCSS介绍</title>
     <url>/2025/01/20/Games202-Lecture3/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -225,6 +170,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Games202-lecture12-实时光线追踪1</title>
+    <url>/2025/01/29/Games202-lecture12/</url>
+    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image1.png"
+                      class=""
+                >
+
+<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image2.png"
+                      class=""
+                >
+
+<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image3.png"
+                      class=""
+                >
+
+<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image4.png"
+                      class=""
+                >
+
+<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image5.png"
+                      class=""
+                >
+
+<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/29/Games202-lecture12/image6.png"
+                      class=""
+                >
+
+<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Filtering</tag>
+        <tag>Denoising</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games202-lecture13-实时光线追踪2</title>
     <url>/2025/01/30/Games202-lecture13/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -318,6 +318,110 @@
       </categories>
       <tags>
         <tag>Filtering</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture14-实时光线追踪3</title>
+    <url>/2025/01/31/Games202-lecture14/</url>
+    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image1.png"
+                      class=""
+                >
+
+<h2 id="SVGF-时空方差引导滤波-（也是联合双边滤波的一种）"><a href="#SVGF-时空方差引导滤波-（也是联合双边滤波的一种）" class="headerlink" title="SVGF-时空方差引导滤波 （也是联合双边滤波的一种）"></a>SVGF-时空方差引导滤波 （也是联合双边滤波的一种）</h2><h3 id="Depth，这里考虑的是沿着法线方向的深度差异"><a href="#Depth，这里考虑的是沿着法线方向的深度差异" class="headerlink" title="Depth，这里考虑的是沿着法线方向的深度差异"></a>Depth，这里考虑的是沿着法线方向的深度差异</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image2.png"
+                      class=""
+                >
+
+<h3 id="Normal，法线"><a href="#Normal，法线" class="headerlink" title="Normal，法线"></a>Normal，法线</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image3.png"
+                      class=""
+                >
+
+<h3 id="Luminance，亮度-或者说是灰度值"><a href="#Luminance，亮度-或者说是灰度值" class="headerlink" title="Luminance，亮度 或者说是灰度值"></a>Luminance，亮度 或者说是灰度值</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image4.png"
+                      class=""
+                >
+
+<h2 id="RAE-周期自动编码方法，神经网络实现，属于后期处理"><a href="#RAE-周期自动编码方法，神经网络实现，属于后期处理" class="headerlink" title="RAE-周期自动编码方法，神经网络实现，属于后期处理"></a>RAE-周期自动编码方法，神经网络实现，属于后期处理</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image5.png"
+                      class=""
+                >
+
+<h2 id="抗锯齿方法"><a href="#抗锯齿方法" class="headerlink" title="抗锯齿方法"></a>抗锯齿方法</h2><h3 id="Temporal-Anti-Aliasing-TAA-，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）"><a href="#Temporal-Anti-Aliasing-TAA-，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）" class="headerlink" title="Temporal Anti-Aliasing(TAA)，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）"></a>Temporal Anti-Aliasing(TAA)，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image6.png"
+                      class=""
+                >
+
+<h3 id="MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色"><a href="#MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色" class="headerlink" title="MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色"></a>MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image7.png"
+                      class=""
+                >
+
+<h3 id="基于图像的抗锯齿：SMAA（Enhanced-subpixel-morphologic-AA），主要还是需要找到边界"><a href="#基于图像的抗锯齿：SMAA（Enhanced-subpixel-morphologic-AA），主要还是需要找到边界" class="headerlink" title="基于图像的抗锯齿：SMAA（Enhanced subpixel morphologic AA），主要还是需要找到边界"></a>基于图像的抗锯齿：SMAA（Enhanced subpixel morphologic AA），主要还是需要找到边界</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image8.png"
+                      class=""
+                >
+
+<h3 id="注意-G-buffers-不能做反走样！"><a href="#注意-G-buffers-不能做反走样！" class="headerlink" title="注意: G-buffers 不能做反走样！"></a>注意: G-buffers 不能做反走样！</h3><h2 id="Clustered-Shading"><a href="#Clustered-Shading" class="headerlink" title="Clustered Shading"></a>Clustered Shading</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image9.png"
+                      class=""
+                >
+
+<h2 id="Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好"><a href="#Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好" class="headerlink" title="Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好"></a>Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image10.png"
+                      class=""
+                >
+
+<h3 id="一些用LOD的困难"><a href="#一些用LOD的困难" class="headerlink" title="一些用LOD的困难"></a>一些用LOD的困难</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image11.png"
+                      class=""
+                >
+
+<h2 id="Lumen，全局光照"><a href="#Lumen，全局光照" class="headerlink" title="Lumen，全局光照"></a>Lumen，全局光照</h2><h3 id="可能有的技术"><a href="#可能有的技术" class="headerlink" title="可能有的技术"></a>可能有的技术</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image12.png"
+                      class=""
+                >
+
+<h3 id="Lumen用到的解决方法"><a href="#Lumen用到的解决方法" class="headerlink" title="Lumen用到的解决方法"></a>Lumen用到的解决方法</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/31/Games202-lecture14/image13.png"
+                      class=""
+                >
+]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Filtering</tag>
+        <tag>Denoising</tag>
+        <tag>Anti-Aliasing</tag>
       </tags>
   </entry>
   <entry>
@@ -487,110 +591,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Games202-lecture14-实时光线追踪3</title>
-    <url>/2025/01/31/Games202-lecture14/</url>
-    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image1.png"
-                      class=""
-                >
-
-<h2 id="SVGF-时空方差引导滤波-（也是联合双边滤波的一种）"><a href="#SVGF-时空方差引导滤波-（也是联合双边滤波的一种）" class="headerlink" title="SVGF-时空方差引导滤波 （也是联合双边滤波的一种）"></a>SVGF-时空方差引导滤波 （也是联合双边滤波的一种）</h2><h3 id="Depth，这里考虑的是沿着法线方向的深度差异"><a href="#Depth，这里考虑的是沿着法线方向的深度差异" class="headerlink" title="Depth，这里考虑的是沿着法线方向的深度差异"></a>Depth，这里考虑的是沿着法线方向的深度差异</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image2.png"
-                      class=""
-                >
-
-<h3 id="Normal，法线"><a href="#Normal，法线" class="headerlink" title="Normal，法线"></a>Normal，法线</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image3.png"
-                      class=""
-                >
-
-<h3 id="Luminance，亮度-或者说是灰度值"><a href="#Luminance，亮度-或者说是灰度值" class="headerlink" title="Luminance，亮度 或者说是灰度值"></a>Luminance，亮度 或者说是灰度值</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image4.png"
-                      class=""
-                >
-
-<h2 id="RAE-周期自动编码方法，神经网络实现，属于后期处理"><a href="#RAE-周期自动编码方法，神经网络实现，属于后期处理" class="headerlink" title="RAE-周期自动编码方法，神经网络实现，属于后期处理"></a>RAE-周期自动编码方法，神经网络实现，属于后期处理</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image5.png"
-                      class=""
-                >
-
-<h2 id="抗锯齿方法"><a href="#抗锯齿方法" class="headerlink" title="抗锯齿方法"></a>抗锯齿方法</h2><h3 id="Temporal-Anti-Aliasing-TAA-，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）"><a href="#Temporal-Anti-Aliasing-TAA-，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）" class="headerlink" title="Temporal Anti-Aliasing(TAA)，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）"></a>Temporal Anti-Aliasing(TAA)，一个像素随机扰动采样点（一般是固定的几个点，可以在相机不动的情况下也能收敛）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image6.png"
-                      class=""
-                >
-
-<h3 id="MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色"><a href="#MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色" class="headerlink" title="MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色"></a>MSAA和SSAA：MSAA是一个像素点有比如4个感知点，然后不同的几何只会渲染一次，渲染的位置可能是对应感知点的中心；SSAA是真正的着色</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image7.png"
-                      class=""
-                >
-
-<h3 id="基于图像的抗锯齿：SMAA（Enhanced-subpixel-morphologic-AA），主要还是需要找到边界"><a href="#基于图像的抗锯齿：SMAA（Enhanced-subpixel-morphologic-AA），主要还是需要找到边界" class="headerlink" title="基于图像的抗锯齿：SMAA（Enhanced subpixel morphologic AA），主要还是需要找到边界"></a>基于图像的抗锯齿：SMAA（Enhanced subpixel morphologic AA），主要还是需要找到边界</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image8.png"
-                      class=""
-                >
-
-<h3 id="注意-G-buffers-不能做反走样！"><a href="#注意-G-buffers-不能做反走样！" class="headerlink" title="注意: G-buffers 不能做反走样！"></a>注意: G-buffers 不能做反走样！</h3><h2 id="Clustered-Shading"><a href="#Clustered-Shading" class="headerlink" title="Clustered Shading"></a>Clustered Shading</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image9.png"
-                      class=""
-                >
-
-<h2 id="Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好"><a href="#Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好" class="headerlink" title="Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好"></a>Nanite的主要思想就是选取LOD，只不过选取规则是UE5自己定的，而且效果很好</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image10.png"
-                      class=""
-                >
-
-<h3 id="一些用LOD的困难"><a href="#一些用LOD的困难" class="headerlink" title="一些用LOD的困难"></a>一些用LOD的困难</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image11.png"
-                      class=""
-                >
-
-<h2 id="Lumen，全局光照"><a href="#Lumen，全局光照" class="headerlink" title="Lumen，全局光照"></a>Lumen，全局光照</h2><h3 id="可能有的技术"><a href="#可能有的技术" class="headerlink" title="可能有的技术"></a>可能有的技术</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image12.png"
-                      class=""
-                >
-
-<h3 id="Lumen用到的解决方法"><a href="#Lumen用到的解决方法" class="headerlink" title="Lumen用到的解决方法"></a>Lumen用到的解决方法</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/31/Games202-lecture14/image13.png"
-                      class=""
-                >
-]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering</tag>
-        <tag>Denoising</tag>
-        <tag>Anti-Aliasing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture5-实时的环境光照1</title>
     <url>/2025/01/22/Games202-lecture5/</url>
     <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
@@ -700,6 +700,124 @@
         <tag>Shadow</tag>
         <tag>Soft Shadow</tag>
         <tag>PBR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture6-实时的环境光照2</title>
+    <url>/2025/01/23/Games202-lecture6/</url>
+    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image1.png"
+                      class=""
+                >
+
+<h2 id="环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow-map"><a href="#环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow-map" class="headerlink" title="环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow map?"></a>环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow map?</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image2.png"
+                      class=""
+                >
+
+<h2 id="频率和频域的复习"><a href="#频率和频域的复习" class="headerlink" title="频率和频域的复习"></a>频率和频域的复习</h2><h3 id="傅里叶级数展开（傅里叶变换，Fourier-Transform）"><a href="#傅里叶级数展开（傅里叶变换，Fourier-Transform）" class="headerlink" title="傅里叶级数展开（傅里叶变换，Fourier Transform）"></a>傅里叶级数展开（傅里叶变换，Fourier Transform）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image3.png"
+                      class=""
+                >
+
+<h2 id="频域空间的内容"><a href="#频域空间的内容" class="headerlink" title="频域空间的内容"></a>频域空间的内容</h2><h3 id="原始情况下"><a href="#原始情况下" class="headerlink" title="原始情况下"></a>原始情况下</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image4.png"
+                      class=""
+                >
+
+<h3 id="低通滤波后"><a href="#低通滤波后" class="headerlink" title="低通滤波后"></a>低通滤波后</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image5.png"
+                      class=""
+                >
+
+<h2 id="卷积理论"><a href="#卷积理论" class="headerlink" title="卷积理论"></a>卷积理论</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image6.png"
+                      class=""
+                >
+
+<h2 id="基函数"><a href="#基函数" class="headerlink" title="基函数"></a>基函数</h2><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image7.png"
+                      class=""
+                >
+
+<h2 id="球面谐波"><a href="#球面谐波" class="headerlink" title="球面谐波"></a>球面谐波</h2><h3 id="球谐的基函数大致的形状"><a href="#球谐的基函数大致的形状" class="headerlink" title="球谐的基函数大致的形状"></a>球谐的基函数大致的形状</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image8.png"
+                      class=""
+                >
+
+<h3 id="球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）"><a href="#球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）" class="headerlink" title="球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）"></a>球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image9.png"
+                      class=""
+                >
+
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image10.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image11.png"
+                      class=""
+                >
+
+<h3 id="做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和"><a href="#做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和" class="headerlink" title="做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和"></a>做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image12.png"
+                      class=""
+                >
+
+<h2 id="用球谐解决visibility项：PRT的效果（Precomputed-Radiance-Transfer）"><a href="#用球谐解决visibility项：PRT的效果（Precomputed-Radiance-Transfer）" class="headerlink" title="用球谐解决visibility项：PRT的效果（Precomputed Radiance Transfer）"></a>用球谐解决visibility项：PRT的效果（Precomputed Radiance Transfer）</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image13.png"
+                      class=""
+                >
+
+<h3 id="PRT的思想：光照可以发生改变，物体不改变，则light-transport就不会改变。相当于预计算空间中所有点的light-transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）"><a href="#PRT的思想：光照可以发生改变，物体不改变，则light-transport就不会改变。相当于预计算空间中所有点的light-transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）" class="headerlink" title="PRT的思想：光照可以发生改变，物体不改变，则light transport就不会改变。相当于预计算空间中所有点的light transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）"></a>PRT的思想：光照可以发生改变，物体不改变，则light transport就不会改变。相当于预计算空间中所有点的light transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image14.png"
+                      class=""
+                >
+
+<h3 id="分情况：Diffuse-Case-BRDF-ρ可以看成一个常数，所以可以移出到积分外面"><a href="#分情况：Diffuse-Case-BRDF-ρ可以看成一个常数，所以可以移出到积分外面" class="headerlink" title="分情况：Diffuse Case (BRDF ρ可以看成一个常数，所以可以移出到积分外面)"></a>分情况：Diffuse Case (BRDF ρ可以看成一个常数，所以可以移出到积分外面)</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/23/Games202-lecture6/image15.png"
+                      class=""
+                >
+]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>PBR</tag>
+        <tag>Environment Lighting</tag>
+        <tag>Global Illumination</tag>
       </tags>
   </entry>
   <entry>
@@ -879,124 +997,6 @@
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>Environment Lighting</tag>
-        <tag>Global Illumination</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-lecture6-实时的环境光照2</title>
-    <url>/2025/01/23/Games202-lecture6/</url>
-    <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image1.png"
-                      class=""
-                >
-
-<h2 id="环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow-map"><a href="#环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow-map" class="headerlink" title="环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow map?"></a>环境光的阴影（应该相当于是环境光的遮蔽关系）：工业界从最亮的光源渲染Shadow map?</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image2.png"
-                      class=""
-                >
-
-<h2 id="频率和频域的复习"><a href="#频率和频域的复习" class="headerlink" title="频率和频域的复习"></a>频率和频域的复习</h2><h3 id="傅里叶级数展开（傅里叶变换，Fourier-Transform）"><a href="#傅里叶级数展开（傅里叶变换，Fourier-Transform）" class="headerlink" title="傅里叶级数展开（傅里叶变换，Fourier Transform）"></a>傅里叶级数展开（傅里叶变换，Fourier Transform）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image3.png"
-                      class=""
-                >
-
-<h2 id="频域空间的内容"><a href="#频域空间的内容" class="headerlink" title="频域空间的内容"></a>频域空间的内容</h2><h3 id="原始情况下"><a href="#原始情况下" class="headerlink" title="原始情况下"></a>原始情况下</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image4.png"
-                      class=""
-                >
-
-<h3 id="低通滤波后"><a href="#低通滤波后" class="headerlink" title="低通滤波后"></a>低通滤波后</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image5.png"
-                      class=""
-                >
-
-<h2 id="卷积理论"><a href="#卷积理论" class="headerlink" title="卷积理论"></a>卷积理论</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image6.png"
-                      class=""
-                >
-
-<h2 id="基函数"><a href="#基函数" class="headerlink" title="基函数"></a>基函数</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image7.png"
-                      class=""
-                >
-
-<h2 id="球面谐波"><a href="#球面谐波" class="headerlink" title="球面谐波"></a>球面谐波</h2><h3 id="球谐的基函数大致的形状"><a href="#球谐的基函数大致的形状" class="headerlink" title="球谐的基函数大致的形状"></a>球谐的基函数大致的形状</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image8.png"
-                      class=""
-                >
-
-<h3 id="球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）"><a href="#球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）" class="headerlink" title="球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）"></a>球谐基函数的系数计算：也叫投影到基函数（在球面上采样对基函数相乘然后积分）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image9.png"
-                      class=""
-                >
-
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image10.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image11.png"
-                      class=""
-                >
-
-<h3 id="做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和"><a href="#做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和" class="headerlink" title="做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和"></a>做法：投影：把灯光投影到某个基函数需要积分所有的灯光在基函数上的投影然后积分（积分可以用蒙特卡洛解决）反投影：每个系数乘以基函数然后求和</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image12.png"
-                      class=""
-                >
-
-<h2 id="用球谐解决visibility项：PRT的效果（Precomputed-Radiance-Transfer）"><a href="#用球谐解决visibility项：PRT的效果（Precomputed-Radiance-Transfer）" class="headerlink" title="用球谐解决visibility项：PRT的效果（Precomputed Radiance Transfer）"></a>用球谐解决visibility项：PRT的效果（Precomputed Radiance Transfer）</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image13.png"
-                      class=""
-                >
-
-<h3 id="PRT的思想：光照可以发生改变，物体不改变，则light-transport就不会改变。相当于预计算空间中所有点的light-transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）"><a href="#PRT的思想：光照可以发生改变，物体不改变，则light-transport就不会改变。相当于预计算空间中所有点的light-transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）" class="headerlink" title="PRT的思想：光照可以发生改变，物体不改变，则light transport就不会改变。相当于预计算空间中所有点的light transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）"></a>PRT的思想：光照可以发生改变，物体不改变，则light transport就不会改变。相当于预计算空间中所有点的light transport，存放到球协函数中（这里应该只能预计算Diffuse的BRDF吧）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image14.png"
-                      class=""
-                >
-
-<h3 id="分情况：Diffuse-Case-BRDF-ρ可以看成一个常数，所以可以移出到积分外面"><a href="#分情况：Diffuse-Case-BRDF-ρ可以看成一个常数，所以可以移出到积分外面" class="headerlink" title="分情况：Diffuse Case (BRDF ρ可以看成一个常数，所以可以移出到积分外面)"></a>分情况：Diffuse Case (BRDF ρ可以看成一个常数，所以可以移出到积分外面)</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/23/Games202-lecture6/image15.png"
-                      class=""
-                >
-]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>PBR</tag>
         <tag>Environment Lighting</tag>
         <tag>Global Illumination</tag>
       </tags>
