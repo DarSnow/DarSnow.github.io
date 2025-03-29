@@ -425,6 +425,118 @@
       </tags>
   </entry>
   <entry>
+    <title>Games202-lecture5-实时的环境光照1</title>
+    <url>/2025/01/22/Games202-lecture5/</url>
+    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image1.png"
+                      class=""
+                >
+
+<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image2.png"
+                      class=""
+                >
+
+<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image3.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image4.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image5.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image6.png"
+                      class=""
+                >
+
+<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image7.png"
+                      class=""
+                >
+
+<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image8.png"
+                      class=""
+                >
+
+<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image9.png"
+                      class=""
+                >
+
+<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image10.png"
+                      class=""
+                >
+
+<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image11.png"
+                      class=""
+                >
+
+<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image12.png"
+                      class=""
+                >
+
+<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image13.png"
+                      class=""
+                >
+
+<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image14.png"
+                      class=""
+                >
+
+<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Shadow</tag>
+        <tag>Soft Shadow</tag>
+        <tag>PBR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Games202-lecture4-实时阴影2</title>
     <url>/2025/01/21/Games202-lecture4/</url>
     <content><![CDATA[<h2 id="本节大纲"><a href="#本节大纲" class="headerlink" title="本节大纲"></a>本节大纲</h2><img  
@@ -706,118 +818,6 @@
         <tag>PBR</tag>
         <tag>Environment Lighting</tag>
         <tag>Global Illumination</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Games202-lecture5-实时的环境光照1</title>
-    <url>/2025/01/22/Games202-lecture5/</url>
-    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image1.png"
-                      class=""
-                >
-
-<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image2.png"
-                      class=""
-                >
-
-<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image3.png"
-                      class=""
-                >
-
-<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image4.png"
-                      class=""
-                >
-
-<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image5.png"
-                      class=""
-                >
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image6.png"
-                      class=""
-                >
-
-<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image7.png"
-                      class=""
-                >
-
-<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image8.png"
-                      class=""
-                >
-
-<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image9.png"
-                      class=""
-                >
-
-<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image10.png"
-                      class=""
-                >
-
-<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image11.png"
-                      class=""
-                >
-
-<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image12.png"
-                      class=""
-                >
-
-<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image13.png"
-                      class=""
-                >
-
-<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image14.png"
-                      class=""
-                >
-
-<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Shadow</tag>
-        <tag>PBR</tag>
-        <tag>Soft Shadow</tag>
       </tags>
   </entry>
   <entry>
@@ -1588,6 +1588,37 @@
       </tags>
   </entry>
   <entry>
+    <title>RenderDoc和Mumu模拟器截帧步骤</title>
+    <url>/2025/03/28/RecordRenderdocForMumu/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="f7089d224a9f794893c83b602c4d5ca3b4160b5ddffaf3dbe33073e49a65597b">8eac6654248299c0dd9820bf6864fe7d3e22337c8a66294909eebbe24f6672b5ce9be855c84afb7b8322dd61fa4d43e9f343e1052b841a5a1a7295e50768d879e2a5d993ad52e867888dda4cc6d3dc4be04131fc9bc71baf79319dd41b2f58b89dc7ec011a9f2a458b06d6df5a6e0ce87ae933306865e11476fc6e9da12c2a5106b04fb48bc7783d1bb4652b7b61daba96b226045004cc8221535b9b876a8b55d9274bab2ff8fa4aa5586f13c520fd619c2e29a552a693eb46229519ac5e91ddd05d351071590c7b12c78ee56ba2931ad1e6659b3ec866c0816b85a81e28fefa8da91f14c8912ec8e1a97ff7a6c721fb414be11ee15fc4f0a5123da22cdc49d20a638117377300f184146bc52d64ff620682e076dd30874f15fbef6d6a2657b32c9809d50fa6c6466722e293193d35d6306fc358a1ff386d8744f09b2256658543321b334bf070d20e9f1f82209ee75dcde8fc88ce9487d7aed6a6a1a557f2570451e20cbfa8fca1d7fae81b2d0436b265581261239c5c04fff15b567a4e8f450b1bb09a64399ef57d2b0b4d31666e007e785da42d4787ee7b9604ccf3aebf307860b998fcc37127c4bd16b2b2abda81459de6a080e4cb483cdda4f947ef029a780d78f8511746ea0aadcf64cba9927ca300ef47a9aa45dd5956595ab274142cffa8fb6114e807daec28d52c3779c843347885c559f9ff8d0564af8f0e770894cc535d10d0ced20b34a19ac6c28fe77cd91b0fbe7266826d5e6c9e003d8546ff612c72cda740ff01e766b5c94e02b7c7dcfd875ad1959002f6a204182d97e76fdec647dc2b952d71b1741c903452ccabf873f0c5a86001702e58b5fe899f41c76e19a44a68c758420eb8e9b3db4f75f22e6a14b3f2845e17628687a43614ccde50babbc9594ef4bb9939f471d5fb70e5a6ad2dc5a0e42a1960cbb5ff19bd6b6c9e9829747b13904a5cbab08051e2d04e635019298f6f629f07810e695f7104c9035aa83fc3667b49b469a21b48898519822af5e80878401c9b4b7a159d8ad16d2cd911dca10c6e53afc1678f43cf21bfedc2f5dad4c59f38e35533bdad3426c40e7958685078533e9d55e8a367ac832409d88e6fdb879811a17b87122258d5b4bb72e67bd823c7053d31016bc90a34efb78bb0c64a5c3d388a462955ff8251f5e7b172f39155485e0eecdd267354f63ab4544ba6bddf8a48a5b00aa5d0e7bef64ec66f02f097763adcd60fc9717d3d4eee826a427a0c0332158c06bc46da69aa9c1de0ffaa4aaf8aa0dda99898ca761ef016d0341f62aae5728ade4aba34b1c0d98872588dc1eaecd4707a3b1d5014dc847cdd53a1b2d4865212b9f344fc02b45b2e3beb861a32ca854581241dd670fbd09c8c8a0fd383960dce4a74703a0f695e5fd43416904b730129cbf852311bb68af408cb007fa20033e9948306fef2dbacc028d0072ea0636292042e0f1c8a7ab87b31e90b494a627d4f6c64531ab920a3463b7deb0fe5d5626d300e58fd7e49cd1702961979bb67c757a8088717bf7dc7bf2c5561418a7109e4401d2b3a757d8319494c6b8aabc0870e7aba401a4becaa49f6ed14a1b7302266c6fc94ea8965cc8cbbbb4c3fbec8852811c4720cf5d62c08e058f36fe7a7ab72bc5a5c24885a0ea38f7d8469025473675b5f9afb538dc1b6f6323261f77772eced9bc552bd18f18fd49d13ebc8420d005bf0186ccefce7e158798daf48256bd2af63a435a62722e64f996e829b3896e63600832beea0397da575e61d52fad25459dc109bc10b4fb2dd7d2374b1981de786ce9cfb57f7cd278e4ad12fcb8e81d864a93463e853e3545d2b197199ab7fb4ac994a88af3f9106b881a3e98a39a1b6d1f8027d61322270e12293b8261433e0908a5750bd4bf871836fff6367d9400686f28e6a7e7d7f2540b1e44264e1af1632e241353555792edceb0bd1f5e77042a7a090816e7ecddb7b60cb670ee9a98f9bfead5cdc6e52821ebf5c4571b11df67da0fee2cb883ac7fb4e142cea5d1f344bf3c8124f07339698d444e1f1ea28fc91fd371c824fa5652b8fbec80255b12cc8102c11f2592ad1b1ab80c01aae6997b8708c6eaeddf16960abd11a3ba46e74fcd383a55b26b4260f61acf3463fd692a8a9bc36cef8dccd07330a4999ddaf20deaf51f7d3987c1b84ef21dce03dd112be11abe5e4d1747966116c6a986e3f25c5a9012245d6453cc6fffc957b026d42020fbf9ef9345b5f9218863fda3653912c2174e15603e545a6d7d4236586bcac69995307628f601c7fab1e33a86037748e2c794eea9b8d5ba752fcd6027da5c4aad766a8c50c43d8f114488df27d22ae8dc3d80f99f87034af65a9cd274f4d5d64668304e1896b03d9d2369180f32e5b2fb35ed70a5b5e008a926637b510c975b34e092920fc39d819808aba746a6fabe96239e94fdf2b172b95d866e99de5ed12d4d4415624a0df2d5a8c24d54ff1c1ff9f43bfbd6b9269e4a329a0ad020489781d93bedb5decf4b74827a51ae0895274bda2911428bd2a796538a65dc5c5483ed1716241e88caf88e8e261b77e12f17cf5173ed353c387fa4e606de4f0feb47d6236a6c47e2177e363ff2b7d2d3a9e8ace2fe18c4fe5dabe4cf4fe8328b8ba5abb67774aec47af15aaa71236e81a0d57cf26ed299c0327b51163bb3a19d3c9563167c3bcf9a75a9eb5dba99b91da5dd8325b2cfeda34de240589d6d0b47412920f30a38221a36955fa2af6ca47061c02fe2ea0a99f5e3c3427ee1095b0307a570d677ea22db6dfb218e575ea9169a8a755604cbb5f8afd15d744e8162e5e241a81b2c585a32b457d95caeeb9cc51b65bca52eaf7f985d92802ec840a192c4d9874e19d626b2e2cc61537b61b3b7bc67abc19934433a826a86a968710a9f8f860a81ad7f913a510b612c66629d6f15139c247d3ceea8b5572ade6856715145fcdd24df2f8b6a0a9b85597308b5890e30fa9af2d574d2ac6b88cb65ec05423db112bee9d54357e099b4d05ba3b1969106d8cc52a9128b4dab5c2c581d0accc9784faf5948618467d25dc03ffe6e56037d6d442fc70e5f2b8990a84535f88a44423a743082dd2381e32dd58d8770ce7e20a09b0667a4826a45a9e9e360d695245346b9ff99ad4ac0bd92b9625a18686041cd38fd0c1fb0cf076c2831bc569051dac4d2bb757c4a17c92af1a0cb3a458f4bd4a61dbeeb31ddbd59fd35421ad849a2bcfc8a4511828d8d49247acf12000fd6aa9f0943b8137b6af1acad6e440b4f1c373e914235e8662cae837188f1d7b6e57e652f224a54d3772e297cfbbfb4b0361154eb21e68c933d5879abe22c46e5c2c4a1c7cd4202ca7fc130f3f46dd457e3658a164a39bbf90c1450730cfd5d1cea0e99baf96f41b762dbbd9fd1b2d58087da3de4702390a571c811a9f451f90f2ebdde1a544b6979dca94ee55bf2bf12ab363b098bf170af977fcc5220e60460ef6d274909734e48c536ac818f4fbe8d651705e5edc90255c4a28eb57852923d046547abda63320bbd8b2c32308c2eed505dd064125039d7263839beae6dc161193cd0ef6d9c2158e221c5c3357cb72a03c941809f32c9766021cb15ba89ca075bf3ff55ebc8228b845a2a2b8fb463843878c031dbb09a8e216f1d246f530534474cb640d849eef8151317ade48d65667ebceb60ff8348e16dfb3f6ab012c8251e4e1a5bbfda2164640764b59ab20df562ff7101bc294943fe252deb76534a9b1d8f0c81487f312dd99349ad359829744a2384ccdafecf83c9b191ee8b4d54df33df439980a1c4363c6c3cacac6b2add11e269ac8764f6e1bea16dc7fd8c88a10cc75ec38ecc0fa1f8607028098fc23fb5b84ed7266ea03ec715360ad07320b514107b8a2ecc04939cddf8c4679fe61ab513b803dc246d73872d7d0e46511edf3c6c694d37aa0eb75201ca91b8c66f773d2c0dc1597594ffeae43223f595f2cf40986cd75c323ae4fcfee911dfa9244128bac5392708ed29c9fe683d43045c6e424fb22729e6f3f1d7c84c7fb472020137c6bf711148788310056261c6ec804176573d55d28ac05d5346a60dd6b3a7239b855d1bce08e8f3e99c79964593a86e3d7a205f7460f75b85fe31b340e02d5d6688a8668cc9d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
+<script data-swup-reload-script type="module">
+import {initHBE} from "/js/plugins/hbe.js";
+  console.log("hexo-blog-encrypt: loaded.");
+    initHBE();
+</script>
+]]></content>
+      <categories>
+        <category>截帧</category>
+        <category>RenderDoc</category>
+      </categories>
+      <tags>
+        <tag>RenderDoc</tag>
+        <tag>截帧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>UE5 渲染源码学习 - 添加描边后处理 Shader</title>
     <url>/2025/03/10/UE5AddPostShader/</url>
     <content><![CDATA[<h2 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h2><!DOCTYPE html>
@@ -1705,37 +1736,6 @@
         <tag>UE</tag>
         <tag>UE5</tag>
         <tag>UE Source</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RenderDoc和Mumu模拟器截帧步骤</title>
-    <url>/2025/03/28/RecordRenderdocForMumu/</url>
-    <content><![CDATA[
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f7089d224a9f794893c83b602c4d5ca3b4160b5ddffaf3dbe33073e49a65597b">8eac6654248299c0dd9820bf6864fe7d3e22337c8a66294909eebbe24f6672b5ce9be855c84afb7b8322dd61fa4d43e9f343e1052b841a5a1a7295e50768d879e2a5d993ad52e867888dda4cc6d3dc4be04131fc9bc71baf79319dd41b2f58b89dc7ec011a9f2a458b06d6df5a6e0ce87ae933306865e11476fc6e9da12c2a5106b04fb48bc7783d1bb4652b7b61daba96b226045004cc8221535b9b876a8b55d9274bab2ff8fa4aa5586f13c520fd619c2e29a552a693eb46229519ac5e91ddd05d351071590c7b12c78ee56ba2931ad1e6659b3ec866c0816b85a81e28fefa8da91f14c8912ec8e1a97ff7a6c721fb414be11ee15fc4f0a5123da22cdc49d20a638117377300f184146bc52d64ff620682e076dd30874f15fbef6d6a2657b32c9809d50fa6c6466722e293193d35d6306fc358a1ff386d8744f09b2256658543321b334bf070d20e9f1f82209ee75dcde8fc88ce9487d7aed6a6a1a557f2570451e20cbfa8fca1d7fae81b2d0436b265581261239c5c04fff15b567a4e8f450b1bb09a64399ef57d2b0b4d31666e007e785da42d4787ee7b9604ccf3aebf307860b998fcc37127c4bd16b2b2abda81459de6a080e4cb483cdda4f947ef029a780d78f8511746ea0aadcf64cba9927ca300ef47a9aa45dd5956595ab274142cffa8fb6114e807daec28d52c3779c843347885c559f9ff8d0564af8f0e770894cc535d10d0ced20b34a19ac6c28fe77cd91b0fbe7266826d5e6c9e003d8546ff612c72cda740ff01e766b5c94e02b7c7dcfd875ad1959002f6a204182d97e76fdec647dc2b952d71b1741c903452ccabf873f0c5a86001702e58b5fe899f41c76e19a44a68c758420eb8e9b3db4f75f22e6a14b3f2845e17628687a43614ccde50babbc9594ef4bb9939f471d5fb70e5a6ad2dc5a0e42a1960cbb5ff19bd6b6c9e9829747b13904a5cbab08051e2d04e635019298f6f629f07810e695f7104c9035aa83fc3667b49b469a21b48898519822af5e80878401c9b4b7a159d8ad16d2cd911dca10c6e53afc1678f43cf21bfedc2f5dad4c59f38e35533bdad3426c40e7958685078533e9d55e8a367ac832409d88e6fdb879811a17b87122258d5b4bb72e67bd823c7053d31016bc90a34efb78bb0c64a5c3d388a462955ff8251f5e7b172f39155485e0eecdd267354f63ab4544ba6bddf8a48a5b00aa5d0e7bef64ec66f02f097763adcd60fc9717d3d4eee826a427a0c0332158c06bc46da69aa9c1de0ffaa4aaf8aa0dda99898ca761ef016d0341f62aae5728ade4aba34b1c0d98872588dc1eaecd4707a3b1d5014dc847cdd53a1b2d4865212b9f344fc02b45b2e3beb861a32ca854581241dd670fbd09c8c8a0fd383960dce4a74703a0f695e5fd43416904b730129cbf852311bb68af408cb007fa20033e9948306fef2dbacc028d0072ea0636292042e0f1c8a7ab87b31e90b494a627d4f6c64531ab920a3463b7deb0fe5d5626d300e58fd7e49cd1702961979bb67c757a8088717bf7dc7bf2c5561418a7109e4401d2b3a757d8319494c6b8aabc0870e7aba401a4becaa49f6ed14a1b7302266c6fc94ea8965cc8cbbbb4c3fbec8852811c4720cf5d62c08e058f36fe7a7ab72bc5a5c24885a0ea38f7d8469025473675b5f9afb538dc1b6f6323261f77772eced9bc552bd18f18fd49d13ebc8420d005bf0186ccefce7e158798daf48256bd2af63a435a62722e64f996e829b3896e63600832beea0397da575e61d52fad25459dc109bc10b4fb2dd7d2374b1981de786ce9cfb57f7cd278e4ad12fcb8e81d864a93463e853e3545d2b197199ab7fb4ac994a88af3f9106b881a3e98a39a1b6d1f8027d61322270e12293b8261433e0908a5750bd4bf871836fff6367d9400686f28e6a7e7d7f2540b1e44264e1af1632e241353555792edceb0bd1f5e77042a7a090816e7ecddb7b60cb670ee9a98f9bfead5cdc6e52821ebf5c4571b11df67da0fee2cb883ac7fb4e142cea5d1f344bf3c8124f07339698d444e1f1ea28fc91fd371c824fa5652b8fbec80255b12cc8102c11f2592ad1b1ab80c01aae6997b8708c6eaeddf16960abd11a3ba46e74fcd383a55b26b4260f61acf3463fd692a8a9bc36cef8dccd07330a4999ddaf20deaf51f7d3987c1b84ef21dce03dd112be11abe5e4d1747966116c6a986e3f25c5a9012245d6453cc6fffc957b026d42020fbf9ef9345b5f9218863fda3653912c2174e15603e545a6d7d4236586bcac69995307628f601c7fab1e33a86037748e2c794eea9b8d5ba752fcd6027da5c4aad766a8c50c43d8f114488df27d22ae8dc3d80f99f87034af65a9cd274f4d5d64668304e1896b03d9d2369180f32e5b2fb35ed70a5b5e008a926637b510c975b34e092920fc39d819808aba746a6fabe96239e94fdf2b172b95d866e99de5ed12d4d4415624a0df2d5a8c24d54ff1c1ff9f43bfbd6b9269e4a329a0ad020489781d93bedb5decf4b74827a51ae0895274bda2911428bd2a796538a65dc5c5483ed1716241e88caf88e8e261b77e12f17cf5173ed353c387fa4e606de4f0feb47d6236a6c47e2177e363ff2b7d2d3a9e8ace2fe18c4fe5dabe4cf4fe8328b8ba5abb67774aec47af15aaa71236e81a0d57cf26ed299c0327b51163bb3a19d3c9563167c3bcf9a75a9eb5dba99b91da5dd8325b2cfeda34de240589d6d0b47412920f30a38221a36955fa2af6ca47061c02fe2ea0a99f5e3c3427ee1095b0307a570d677ea22db6dfb218e575ea9169a8a755604cbb5f8afd15d744e8162e5e241a81b2c585a32b457d95caeeb9cc51b65bca52eaf7f985d92802ec840a192c4d9874e19d626b2e2cc61537b61b3b7bc67abc19934433a826a86a968710a9f8f860a81ad7f913a510b612c66629d6f15139c247d3ceea8b5572ade6856715145fcdd24df2f8b6a0a9b85597308b5890e30fa9af2d574d2ac6b88cb65ec05423db112bee9d54357e099b4d05ba3b1969106d8cc52a9128b4dab5c2c581d0accc9784faf5948618467d25dc03ffe6e56037d6d442fc70e5f2b8990a84535f88a44423a743082dd2381e32dd58d8770ce7e20a09b0667a4826a45a9e9e360d695245346b9ff99ad4ac0bd92b9625a18686041cd38fd0c1fb0cf076c2831bc569051dac4d2bb757c4a17c92af1a0cb3a458f4bd4a61dbeeb31ddbd59fd35421ad849a2bcfc8a4511828d8d49247acf12000fd6aa9f0943b8137b6af1acad6e440b4f1c373e914235e8662cae837188f1d7b6e57e652f224a54d3772e297cfbbfb4b0361154eb21e68c933d5879abe22c46e5c2c4a1c7cd4202ca7fc130f3f46dd457e3658a164a39bbf90c1450730cfd5d1cea0e99baf96f41b762dbbd9fd1b2d58087da3de4702390a571c811a9f451f90f2ebdde1a544b6979dca94ee55bf2bf12ab363b098bf170af977fcc5220e60460ef6d274909734e48c536ac818f4fbe8d651705e5edc90255c4a28eb57852923d046547abda63320bbd8b2c32308c2eed505dd064125039d7263839beae6dc161193cd0ef6d9c2158e221c5c3357cb72a03c941809f32c9766021cb15ba89ca075bf3ff55ebc8228b845a2a2b8fb463843878c031dbb09a8e216f1d246f530534474cb640d849eef8151317ade48d65667ebceb60ff8348e16dfb3f6ab012c8251e4e1a5bbfda2164640764b59ab20df562ff7101bc294943fe252deb76534a9b1d8f0c81487f312dd99349ad359829744a2384ccdafecf83c9b191ee8b4d54df33df439980a1c4363c6c3cacac6b2add11e269ac8764f6e1bea16dc7fd8c88a10cc75ec38ecc0fa1f8607028098fc23fb5b84ed7266ea03ec715360ad07320b514107b8a2ecc04939cddf8c4679fe61ab513b803dc246d73872d7d0e46511edf3c6c694d37aa0eb75201ca91b8c66f773d2c0dc1597594ffeae43223f595f2cf40986cd75c323ae4fcfee911dfa9244128bac5392708ed29c9fe683d43045c6e424fb22729e6f3f1d7c84c7fb472020137c6bf711148788310056261c6ec804176573d55d28ac05d5346a60dd6b3a7239b855d1bce08e8f3e99c79964593a86e3d7a205f7460f75b85fe31b340e02d5d6688a8668cc9d</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
-<script data-swup-reload-script type="module">
-import {initHBE} from "/js/plugins/hbe.js";
-  console.log("hexo-blog-encrypt: loaded.");
-    initHBE();
-</script>
-]]></content>
-      <categories>
-        <category>截帧</category>
-        <category>RenderDoc</category>
-      </categories>
-      <tags>
-        <tag>RenderDoc</tag>
-        <tag>截帧</tag>
       </tags>
   </entry>
 </search>
