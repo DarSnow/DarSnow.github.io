@@ -170,61 +170,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Games202-lecture12-实时光线追踪1</title>
-    <url>/2025/01/29/Games202-lecture12/</url>
-    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image1.png"
-                      class=""
-                >
-
-<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image2.png"
-                      class=""
-                >
-
-<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image3.png"
-                      class=""
-                >
-
-<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image4.png"
-                      class=""
-                >
-
-<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image5.png"
-                      class=""
-                >
-
-<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/29/Games202-lecture12/image6.png"
-                      class=""
-                >
-
-<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
-      <categories>
-        <category>Computer Graphics</category>
-        <category>Games 202</category>
-      </categories>
-      <tags>
-        <tag>Filtering</tag>
-        <tag>Denoising</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Games202-lecture13-实时光线追踪2</title>
     <url>/2025/01/30/Games202-lecture13/</url>
     <content><![CDATA[<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
@@ -425,115 +370,58 @@
       </tags>
   </entry>
   <entry>
-    <title>Games202-lecture5-实时的环境光照1</title>
-    <url>/2025/01/22/Games202-lecture5/</url>
-    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+    <title>Games202-lecture12-实时光线追踪1</title>
+    <url>/2025/01/29/Games202-lecture12/</url>
+    <content><![CDATA[<h2 id="最后一节课会讲一下Nanite和Lumen？"><a href="#最后一节课会讲一下Nanite和Lumen？" class="headerlink" title="最后一节课会讲一下Nanite和Lumen？"></a>最后一节课会讲一下Nanite和Lumen？</h2><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image1.png"
+                     data-src="/2025/01/29/Games202-lecture12/image1.png"
                       class=""
                 >
 
-<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
+<h2 id="Real-Time-Ray-Tracing：1spp的Path-Tracing"><a href="#Real-Time-Ray-Tracing：1spp的Path-Tracing" class="headerlink" title="Real Time Ray Tracing：1spp的Path Tracing"></a>Real Time Ray Tracing：1spp的Path Tracing</h2><h3 id="RTRT核心技术是降噪："><a href="#RTRT核心技术是降噪：" class="headerlink" title="RTRT核心技术是降噪："></a>RTRT核心技术是降噪：</h3><h4 id="需要实时的Filter（"><a href="#需要实时的Filter（" class="headerlink" title="需要实时的Filter（&lt;2ms）"></a>需要实时的Filter（&lt;2ms）</h4><h4 id="工业界的解决方案是Temporal，时间连续性"><a href="#工业界的解决方案是Temporal，时间连续性" class="headerlink" title="工业界的解决方案是Temporal，时间连续性"></a>工业界的解决方案是Temporal，时间连续性</h4><h4 id="需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"><a href="#需要用Motion-Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用" class="headerlink" title="需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用"></a>需要用Motion Vectors找到上一帧对应的像素点在哪里，用上一帧结果复用</h4><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image2.png"
+                     data-src="/2025/01/29/Games202-lecture12/image2.png"
                       class=""
                 >
 
-<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
+<h3 id="Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）"><a href="#Motion-Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion-Vector了吧）" class="headerlink" title="Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）"></a>Motion Vector计算方法（按道理来说大部分静态物体只需要用两帧的View矩阵就可以得到Motion Vector了吧）</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image3.png"
+                     data-src="/2025/01/29/Games202-lecture12/image3.png"
                       class=""
                 >
 
-<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
+<h3 id="当前帧用Filter去过滤，然后应用上一帧的值平均一下"><a href="#当前帧用Filter去过滤，然后应用上一帧的值平均一下" class="headerlink" title="当前帧用Filter去过滤，然后应用上一帧的值平均一下"></a>当前帧用Filter去过滤，然后应用上一帧的值平均一下</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image4.png"
+                     data-src="/2025/01/29/Games202-lecture12/image4.png"
                       class=""
                 >
 
-<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
+<h3 id="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"><a href="#时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）" class="headerlink" title="时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）"></a>时域降噪失败的情况（切换场景、倒退走（或者转镜头吧）、被遮挡）</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image5.png"
+                     data-src="/2025/01/29/Games202-lecture12/image5.png"
                       class=""
                 >
 
-<img  
+<h3 id="解决鬼影问题"><a href="#解决鬼影问题" class="headerlink" title="解决鬼影问题"></a>解决鬼影问题</h3><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image6.png"
+                     data-src="/2025/01/29/Games202-lecture12/image6.png"
                       class=""
                 >
 
-<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image7.png"
-                      class=""
-                >
-
-<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image8.png"
-                      class=""
-                >
-
-<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image9.png"
-                      class=""
-                >
-
-<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image10.png"
-                      class=""
-                >
-
-<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image11.png"
-                      class=""
-                >
-
-<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image12.png"
-                      class=""
-                >
-
-<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image13.png"
-                      class=""
-                >
-
-<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2025/01/22/Games202-lecture5/image14.png"
-                      class=""
-                >
-
-<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
+<h3 id="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"><a href="#时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了" class="headerlink" title="时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了"></a>时域降噪另一个问题Shading问题：场景物体没有动，但是光照修改后Shading变化了；或者比如镜子没有动，但是反射到镜子的物体动了</h3><h3 id="时域降噪也可以用来做抗锯齿-TAA"><a href="#时域降噪也可以用来做抗锯齿-TAA" class="headerlink" title="时域降噪也可以用来做抗锯齿-TAA"></a>时域降噪也可以用来做抗锯齿-TAA</h3>]]></content>
       <categories>
         <category>Computer Graphics</category>
         <category>Games 202</category>
       </categories>
       <tags>
-        <tag>Shadow</tag>
-        <tag>Soft Shadow</tag>
-        <tag>PBR</tag>
+        <tag>Filtering</tag>
+        <tag>Denoising</tag>
       </tags>
   </entry>
   <entry>
@@ -818,6 +706,118 @@
         <tag>PBR</tag>
         <tag>Environment Lighting</tag>
         <tag>Global Illumination</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Games202-lecture5-实时的环境光照1</title>
+    <url>/2025/01/22/Games202-lecture5/</url>
+    <content><![CDATA[<h2 id="Distance-Field-Soft-Shadows"><a href="#Distance-Field-Soft-Shadows" class="headerlink" title="Distance Field Soft Shadows"></a>Distance Field Soft Shadows</h2><h3 id="软阴影效果"><a href="#软阴影效果" class="headerlink" title="软阴影效果"></a>软阴影效果</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image1.png"
+                      class=""
+                >
+
+<h3 id="Distance-Functions-定义空间一点到所有物体最近的距离"><a href="#Distance-Functions-定义空间一点到所有物体最近的距离" class="headerlink" title="Distance Functions: 定义空间一点到所有物体最近的距离"></a>Distance Functions: 定义空间一点到所有物体最近的距离</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image2.png"
+                      class=""
+                >
+
+<h3 id="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"><a href="#对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确" class="headerlink" title="对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确"></a>对于物体移动的情况下，SDF插值比图像插值得到的效果表示物体边界的效果更准确</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image3.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"><a href="#SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）" class="headerlink" title="SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）"></a>SDF的作用1：用来做RayMarching步进。相当于空间一点可以走至少SDF的距离，这样可以走的快一点（如果sdf都很小咋办，比如一个很狭窄的过道那种？）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image4.png"
+                      class=""
+                >
+
+<h3 id="SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"><a href="#SDF的作用2：用来做软阴影。相当于找到Shading-Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡" class="headerlink" title="SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡"></a>SDF的作用2：用来做软阴影。相当于找到Shading Point射线方向最小的SDF值，可以算出一个安全角度，如果角度越小，则越容易遮挡</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image5.png"
+                      class=""
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image6.png"
+                      class=""
+                >
+
+<h3 id="SDF的缺点：需要预计算，储存需要3维量大"><a href="#SDF的缺点：需要预计算，储存需要3维量大" class="headerlink" title="SDF的缺点：需要预计算，储存需要3维量大"></a>SDF的缺点：需要预计算，储存需要3维量大</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image7.png"
+                      class=""
+                >
+
+<h2 id="环境光着色（Environment-Lighting），这里主要讨论的是镜面反射"><a href="#环境光着色（Environment-Lighting），这里主要讨论的是镜面反射" class="headerlink" title="环境光着色（Environment Lighting），这里主要讨论的是镜面反射"></a>环境光着色（Environment Lighting），这里主要讨论的是镜面反射</h2><h3 id="假设环境光无限远"><a href="#假设环境光无限远" class="headerlink" title="假设环境光无限远"></a>假设环境光无限远</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image8.png"
+                      class=""
+                >
+
+<h3 id="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"><a href="#思路，不考虑遮挡的情况（后面可能用AO来补偿一下）" class="headerlink" title="思路，不考虑遮挡的情况（后面可能用AO来补偿一下）"></a>思路，不考虑遮挡的情况（后面可能用AO来补偿一下）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image9.png"
+                      class=""
+                >
+
+<h3 id="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"><a href="#近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分" class="headerlink" title="近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分"></a>近似拆分：黄框相当于是对环境光模糊，然后可以放到mipmap中；黄框右边就是对BRDF的Cos积分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image10.png"
+                      class=""
+                >
+
+<h3 id="预计算BRDF项：红框部分"><a href="#预计算BRDF项：红框部分" class="headerlink" title="预计算BRDF项：红框部分"></a>预计算BRDF项：红框部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image11.png"
+                      class=""
+                >
+
+<h3 id="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"><a href="#微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分" class="headerlink" title="微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分"></a>微表面模型的BRDF分了菲涅尔项、几何遮挡、法线分布三部分</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image12.png"
+                      class=""
+                >
+
+<h3 id="菲涅尔项和NDF项，（G项这里可能没有考虑）"><a href="#菲涅尔项和NDF项，（G项这里可能没有考虑）" class="headerlink" title="菲涅尔项和NDF项，（G项这里可能没有考虑）"></a>菲涅尔项和NDF项，（G项这里可能没有考虑）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image13.png"
+                      class=""
+                >
+
+<h3 id="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）"><a href="#SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0-04xBaseColor，导体是0-96xBaseColor）" class="headerlink" title="SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）"></a>SplitSum来源：为了简化，把R0拆分处理来（R0貌似是直接用基色？貌似unity绝缘体直接用的0.04xBaseColor，导体是0.96xBaseColor）</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2025/01/22/Games202-lecture5/image14.png"
+                      class=""
+                >
+
+<h3 id="计算SplitSum的这两项是用蒙特卡洛采样预计算的"><a href="#计算SplitSum的这两项是用蒙特卡洛采样预计算的" class="headerlink" title="计算SplitSum的这两项是用蒙特卡洛采样预计算的"></a>计算SplitSum的这两项是用蒙特卡洛采样预计算的</h3>]]></content>
+      <categories>
+        <category>Computer Graphics</category>
+        <category>Games 202</category>
+      </categories>
+      <tags>
+        <tag>Shadow</tag>
+        <tag>PBR</tag>
+        <tag>Soft Shadow</tag>
       </tags>
   </entry>
   <entry>
